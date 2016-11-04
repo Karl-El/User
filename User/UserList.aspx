@@ -3,6 +3,35 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <asp:LinkButton ID="_lblUserName" runat="server" Text="Logout" CssClass="btn btn-link" /></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <asp:LinkButton runat="server" ID="_btnAdd" CssClass="btn btn-link" OnClick="_btnAdd_Click"><span class="glyphicon glyphicon-plus"></span> Add New User</asp:LinkButton></li>
+                    <li>
+                        <asp:LinkButton ID="_lnkbtnLogOut" runat="server" Text="Logout" CssClass="btn btn-link" OnClick="_btnLogOut_Click" /></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+    <br />
     <asp:ListView ID="_lstvwUserList" runat="server" DataSourceID="_dtsrcUserList" DataKeyNames="USERID">
         <%--<AlternatingItemTemplate>
             <tr style="">
@@ -138,12 +167,12 @@
                             </tr>
                             <tr runat="server" id="itemPlaceholder">
                             </tr>
-                            <tr runat="server" style="" align="right">
+                            <%--<tr runat="server" style="" align="right">
                                 <td colspan="5">
                                     <asp:LinkButton runat="server" ID="_btnAdd" CssClass="btn btn-info " OnClick="_btnAdd_Click"><span class="glyphicon glyphicon-plus"></span> Add New User</asp:LinkButton>
-                                    <%--<input type="button" value="Back" onclick="window.location = 'UserCRUD.aspx';" class="btn btn-warning" />--%>
+                                    <input type="button" value="Back" onclick="window.location = 'UserCRUD.aspx';" class="btn btn-warning" />
                                 </td>
-                            </tr>
+                            </tr>--%>
                         </table>
                     </div>
                 </div>
@@ -181,10 +210,10 @@
     </asp:SqlDataSource>
     <div class="text-center">
         <hr />
-        <footer>
+        <%--<footer>
             <p>
-                <asp:Button ID="_btnLogOut" runat="server" Text="Logout" CssClass="btn btn-info" OnClick="_btnLogOut_Click"/>
+                <asp:Button ID="_btnLogOut" runat="server" Text="Logout" CssClass="btn btn-info" OnClick="_btnLogOut_Click" />
             </p>
-        </footer>
+        </footer>--%>
     </div>
 </asp:Content>

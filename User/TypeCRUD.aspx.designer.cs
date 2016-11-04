@@ -10,51 +10,33 @@
 namespace User {
     
     
-    public partial class UserList {
+    public partial class TypeCRUD {
         
         /// <summary>
-        /// _lblUserName control.
+        /// _txtbxUserType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton _lblUserName;
+        protected global::System.Web.UI.WebControls.TextBox _txtbxUserType;
         
         /// <summary>
-        /// _btnAdd control.
+        /// _chkbxlstAccess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton _btnAdd;
+        protected global::System.Web.UI.WebControls.CheckBoxList _chkbxlstAccess;
         
         /// <summary>
-        /// _lnkbtnLogOut control.
+        /// _dtsrcType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton _lnkbtnLogOut;
-        
-        /// <summary>
-        /// _lstvwUserList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView _lstvwUserList;
-        
-        /// <summary>
-        /// _dtsrcUserList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource _dtsrcUserList;
+        protected global::System.Web.UI.WebControls.SqlDataSource _dtsrcType;
     }
 }

@@ -61,6 +61,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\checkbox.css" />
+    <Content Include="Content\font-awesome.css" />
     <Content Include="Content\lumen.css" />
     <Content Include="Default.aspx" />
     <Content Include="Fonts\fontawesome-webfont.svg" />
@@ -70,6 +72,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="TypeCRUD.aspx" />
+    <Content Include="TypeList.aspx" />
     <Content Include="UserCRUD.aspx" />
     <Content Include="UserList.aspx" />
     <Content Include="UserViewOnlyList.aspx" />
@@ -97,6 +101,20 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TypeCRUD.aspx.cs">
+      <DependentUpon>TypeCRUD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TypeCRUD.aspx.designer.cs">
+      <DependentUpon>TypeCRUD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TypeList.aspx.cs">
+      <DependentUpon>TypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TypeList.aspx.designer.cs">
+      <DependentUpon>TypeList.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserCRUD.aspx.cs">
       <DependentUpon>UserCRUD.aspx</DependentUpon>

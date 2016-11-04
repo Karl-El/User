@@ -32,7 +32,6 @@ namespace User
             if (DTable.Rows.Count > 0)
             {
                 Session["id"] = _txtbxUserName.Text;
-                Session.RemoveAll();
                 Cmd = new SqlCommand("SELECT * FROM USERS WHERE USERNAME=@UserName", Con);
                 Cmd.Parameters.AddWithValue("@UserName", _txtbxUserName.Text.Trim());
                 SqlDataReader Reader = Cmd.ExecuteReader();

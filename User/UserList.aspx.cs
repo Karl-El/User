@@ -11,7 +11,16 @@ namespace User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["id"] == null)
+            {
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Wrong Entries", "alert('Logged Out Timeout');", true);
+                Response.Redirect("Login.aspx");
 
+            }
+            else
+            {
+                _lblUserName.Text = Session["id"].ToString();
+            }
         }
         protected void _btnAdd_Click(object sender, EventArgs e)
         {
