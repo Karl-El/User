@@ -20,6 +20,8 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <asp:LinkButton ID="_lnkbtnPermission" runat="server" CssClass="btn btn-link" OnClick="_lnkbtnPermission_Click" ><span class="glyphicon glyphicon-user"></span> User Permission</asp:LinkButton></li>
+                    <li>
                         <asp:LinkButton runat="server" ID="_btnAdd" CssClass="btn btn-link" OnClick="_btnAdd_Click"><span class="glyphicon glyphicon-plus"></span> Add New User</asp:LinkButton></li>
                     <li>
                         <asp:LinkButton ID="_lnkbtnLogOut" runat="server" Text="Logout" CssClass="btn btn-link" OnClick="_btnLogOut_Click" /></li>
