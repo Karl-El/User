@@ -15,55 +15,81 @@ namespace User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string Conn = ConfigurationManager.ConnectionStrings["_cnnstrngUserDBOne"].ConnectionString;
-            SqlConnection Connect = new SqlConnection(Conn);
             string TypeID = Request.QueryString["id"];
-            Connect.Open();
-            SqlCommand Cmd = new SqlCommand("SELECT * FROM USERTYPE WHERE USERTYPEID=@TypeID", Connect);
-            Cmd.Parameters.AddWithValue("@TypeID", TypeID);
-            SqlDataReader Reader = Cmd.ExecuteReader();
-            while (Reader.Read())
+            if (TypeID == null)
             {
-                _txtbxUserType.Text = Reader["USERTYPENAME"].ToString();
+
             }
-            Connect.Close();
-            //Connect.Open();
-            //Cmd = new SqlCommand("SELECT PERMITID FROM USERPERMIT WHERE USERTYPEID=@TypeID", Connect);
-            //Cmd.Parameters.AddWithValue("@TypeID", TypeID);
-            //Reader = Cmd.ExecuteReader();
-            //for (int i = 0; i < Reader.FieldCount; i++)
-            //{
-            //    _chkbxlstAccess.SelectedValue = Reader["PERMITID"].ToString();
-            //}
-            //Connect.Close();
+            else
+            {
+                string Conn = ConfigurationManager.ConnectionStrings["_cnnstrngUserDBOne"].ConnectionString;
+                SqlConnection Connect = new SqlConnection(Conn);
+                Connect.Open();
+                SqlCommand Cmd = new SqlCommand("SELECT * FROM USERTYPE WHERE USERTYPEID=@TypeID", Connect);
+                Cmd.Parameters.AddWithValue("@TypeID", TypeID);
+                SqlDataReader Reader = Cmd.ExecuteReader();
+                while (Reader.Read())
+                {
+                    _txtbxUserType.Text = Reader["USERTYPENAME"].ToString();
+                }
+                Connect.Close();
+                //Connect.Open();
+                //Cmd = new SqlCommand("SELECT PERMITID FROM USERPERMIT WHERE USERTYPEID=@TypeID", Connect);
+                //Cmd.Parameters.AddWithValue("@TypeID", TypeID);
+                //Reader = Cmd.ExecuteReader();
+                //for (int i = 0; i < Reader.FieldCount; i++)
+                //{
+                //    _chkbxlstAccess.SelectedValue = Reader["PERMITID"].ToString();
+                //}
+                //Connect.Close();
+            }
         }
 
         protected void SaveButton_Click(object sender, EventArgs e)
         {
+            string TypeID = Request.QueryString["id"];
             string UserType = _txtbxUserType.Text.Trim();
             string Conn = ConfigurationManager.ConnectionStrings["_cnnstrngUserDBOne"].ConnectionString;
-            SqlParameter LastID = new SqlParameter("LastID", 0);
+            //SqlParameter LastID = new SqlParameter("LastID", 0);
             SqlConnection Connect = new SqlConnection(Conn);
             Connect.Open();
             SqlCommand Cmd = new SqlCommand("SELECT COUNT (*) FROM USERTYPE WHERE USERTYPENAME = @UserType", Connect);
             Cmd.Parameters.AddWithValue("@UserType", UserType);
             Int32 Count = (Int32)Cmd.ExecuteScalar();
-            Connect.Close();
-            if (Count == 0)
-            {
-                Connect.Open();
-                Cmd = new SqlCommand("INSERT INTO USERTYPE (USERTYPENAME) VALUES (@UserType); SELECT @LastID=SCOPE_IDENTITY()", Connect);
-                int IDLast = 0;
-                Cmd.Parameters.AddWithValue("@UserType", UserType);
-                Cmd.Parameters.Add(LastID);
-                Cmd.ExecuteNonQuery();
-                IDLast = Convert.ToInt32(LastID.Value);
-                Connect.Close();
-            }
-            else
-            {
-            }
+            //Connect.Close();
+            //if (Count == 0)
+            //{
+            //    Connect.Open();
+            //    Cmd = new SqlCommand("INSERT INTO USERTYPE (USERTYPENAME) VALUES (@UserType)", Connect);
+            //    //int IDLast = 0;
+            //    Cmd.Parameters.AddWithValue("@UserType", UserType);
+            //    //Cmd.Parameters.Add(LastID);
+            //    Cmd.ExecuteNonQuery();
+            //    //IDLast = Convert.ToInt32(LastID.Value);
+            //    Connect.Close();
+            //    string scriptText = "alert('Record Added'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
+            //    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
+            //}
+            //else
+            //{
+            //    //string scriptText = "alert('Record Existing'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
+            //    //ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
+            //    Connect.Open();
+            //    Cmd = new SqlCommand("SELECT COUNT (*) FROM USERTYPE WHERE USERTYPENAME = @UserType AND USERTYPEID!=@TypeID", Connect);
+            //    Cmd.Parameters.AddWithValue("@TypeID", TypeID);
+            //    Cmd.Parameters.AddWithValue("@UserType", UserType);
+            //    Count = (Int32)Cmd.ExecuteScalar();
+            //    Connect.Close();
+            //    if (Count > 0)
+            //    {
+            //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Existing')", true);
 
+            //    }
+            //    else
+            //    {
+            //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Hi')", true);
+            //    }
+            }
         }
     }
 }

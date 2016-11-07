@@ -17,7 +17,7 @@
             <hr />
             <div class="row">
                 <asp:Button ID="SaveButton" runat="server" Text="Save" CssClass="btn btn-primary"  OnClick="SaveButton_Click"/>
-                <asp:Button ID="CancelButton" runat="server" Text="Cancel" CssClass="btn btn-danger" OnClientClick=" window.location = '/UserList.aspx';this.form.reset();return false;" />
+                <asp:Button ID="CancelButton" runat="server" Text="Cancel" CssClass="btn btn-danger" OnClientClick=" window.location = '/TypeList.aspx';this.form.reset();return false;" />
             </div>
         </div>
     </div>
