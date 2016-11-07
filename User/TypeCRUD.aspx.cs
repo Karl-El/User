@@ -13,5 +13,11 @@ namespace User
         {
 
         }
+
+        protected void SaveButton_Click(object sender, EventArgs e)
+        {
+            string UserType = _txtbxUserType.Text.Trim();
+            string Conn=  
+        }
     }
 }

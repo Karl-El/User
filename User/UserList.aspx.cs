@@ -19,7 +19,7 @@ namespace User
             }
             else
             {
-                _lblUserName.Text = Session["id"].ToString();
+                _lblUserName.Text = "Hello, " + Session["id"].ToString()+"!";
             }
         }
         protected void _btnAdd_Click(object sender, EventArgs e)
@@ -31,6 +31,11 @@ namespace User
         {
             Session.RemoveAll();
             Response.Redirect("LogIn.aspx");
+        }
+
+        protected void _lnkbtnPermission_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TypeList.aspx");
         }
     }
 }

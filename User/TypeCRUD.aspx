@@ -14,7 +14,10 @@
                 <asp:CheckBoxList ID="_chkbxlstAccess" runat="server" DataSourceID="_dtsrcType" DataTextField="PERMITNAME" DataValueField="PERMITID" CssClass="checkbox checkbox-danger" RepeatDirection="VERTICAL" TextAlign="Right"></asp:CheckBoxList>
                 <asp:SqlDataSource runat="server" ID="_dtsrcType" ConnectionString='<%$ ConnectionStrings:_cnnstrngUserDBOne %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT]"></asp:SqlDataSource>
             </div>
+            <hr />
             <div class="row">
+                <asp:Button ID="SaveButton" runat="server" Text="Save" CssClass="btn btn-primary"  OnClick="SaveButton_Click"/>
+                <asp:Button ID="CancelButton" runat="server" Text="Cancel" CssClass="btn btn-danger" OnClientClick=" window.location = '/UserList.aspx';this.form.reset();return false;" />
             </div>
         </div>
     </div>
