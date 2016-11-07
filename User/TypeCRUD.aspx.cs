@@ -56,39 +56,53 @@ namespace User
             SqlCommand Cmd = new SqlCommand("SELECT COUNT (*) FROM USERTYPE WHERE USERTYPENAME = @UserType", Connect);
             Cmd.Parameters.AddWithValue("@UserType", UserType);
             Int32 Count = (Int32)Cmd.ExecuteScalar();
-            //Connect.Close();
-            //if (Count == 0)
-            //{
-            //    Connect.Open();
-            //    Cmd = new SqlCommand("INSERT INTO USERTYPE (USERTYPENAME) VALUES (@UserType)", Connect);
-            //    //int IDLast = 0;
-            //    Cmd.Parameters.AddWithValue("@UserType", UserType);
-            //    //Cmd.Parameters.Add(LastID);
-            //    Cmd.ExecuteNonQuery();
-            //    //IDLast = Convert.ToInt32(LastID.Value);
-            //    Connect.Close();
-            //    string scriptText = "alert('Record Added'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
-            //    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
-            //}
-            //else
-            //{
-            //    //string scriptText = "alert('Record Existing'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
-            //    //ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
-            //    Connect.Open();
-            //    Cmd = new SqlCommand("SELECT COUNT (*) FROM USERTYPE WHERE USERTYPENAME = @UserType AND USERTYPEID!=@TypeID", Connect);
-            //    Cmd.Parameters.AddWithValue("@TypeID", TypeID);
-            //    Cmd.Parameters.AddWithValue("@UserType", UserType);
-            //    Count = (Int32)Cmd.ExecuteScalar();
-            //    Connect.Close();
-            //    if (Count > 0)
-            //    {
-            //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Existing')", true);
+            Connect.Close();
+            if (Count < 0)
+            {
+                Connect.Open();
+                Cmd = new SqlCommand("INSERT INTO USERTYPE (USERTYPENAME) VALUES (@UserType)", Connect);
+                //int IDLast = 0;
+                Cmd.Parameters.AddWithValue("@UserType", UserType);
+                //Cmd.Parameters.Add(LastID);
+                Cmd.ExecuteNonQuery();
+                //IDLast = Convert.ToInt32(LastID.Value);
+                Connect.Close();
+                string scriptText = "alert('Record Added'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
+            }
+            else
+            {
+                if (TypeID == null)
+                {
+                    string scriptText = "alert('Record Existing'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
+                }
+                else
+                {
+                    Connect.Open();
+                    UserType = _txtbxUserType.Text.Trim();
+                    Cmd = new SqlCommand("SELECT COUNT (*) FROM USERTYPE WHERE USERTYPENAME=@UserType AND USERTYPEID!=@TypeID", Connect);
+                    Cmd.Parameters.AddWithValue("@TypeID", TypeID);
+                    Cmd.Parameters.AddWithValue("@UserType", UserType);
+                    Count = (Int32)Cmd.ExecuteScalar();
+                    Connect.Close();
+                    if (Count > 0)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Existing')", true);
+                    }
+                    else
+                    {
+                        Connect.Open();
+                        Cmd = new SqlCommand("UPDATE USERTYPE SET  USERTYPENAME=@UserType WHERE USERTYPEID=@TypeID", Connect);
+                        Cmd.Parameters.AddWithValue("@TypeID", Request.QueryString["id"]);
+                        Cmd.Parameters.AddWithValue("@UserType", _txtbxUserType.Text.Trim());
+                        Cmd.ExecuteNonQuery();
+                        Connect.Close();
+                        string scriptText = "alert('Record Updated'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
 
-            //    }
-            //    else
-            //    {
-            //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Hi')", true);
-            //    }
+                    }
+                }
             }
         }
     }
