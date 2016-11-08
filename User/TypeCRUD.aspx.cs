@@ -15,34 +15,6 @@ namespace User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string TypeID = Request.QueryString["id"];
-            if (TypeID == null)
-            {
-
-            }
-            else
-            {
-                string Conn = ConfigurationManager.ConnectionStrings["_cnnstrngUserDBOne"].ConnectionString;
-                SqlConnection Connect = new SqlConnection(Conn);
-                Connect.Open();
-                SqlCommand Cmd = new SqlCommand("SELECT * FROM USERTYPE WHERE USERTYPEID=@TypeID", Connect);
-                Cmd.Parameters.AddWithValue("@TypeID", TypeID);
-                SqlDataReader Reader = Cmd.ExecuteReader();
-                while (Reader.Read())
-                {
-                    _txtbxUserType.Text = Reader["USERTYPENAME"].ToString();
-                }
-                Connect.Close();
-                //Connect.Open();
-                //Cmd = new SqlCommand("SELECT PERMITID FROM USERPERMIT WHERE USERTYPEID=@TypeID", Connect);
-                //Cmd.Parameters.AddWithValue("@TypeID", TypeID);
-                //Reader = Cmd.ExecuteReader();
-                //for (int i = 0; i < Reader.FieldCount; i++)
-                //{
-                //    _chkbxlstAccess.SelectedValue = Reader["PERMITID"].ToString();
-                //}
-                //Connect.Close();
-            }
         }
 
         protected void SaveButton_Click(object sender, EventArgs e)
@@ -57,7 +29,7 @@ namespace User
             Cmd.Parameters.AddWithValue("@UserType", UserType);
             Int32 Count = (Int32)Cmd.ExecuteScalar();
             Connect.Close();
-            if (Count < 0)
+            if (Count == 0)
             {
                 Connect.Open();
                 Cmd = new SqlCommand("INSERT INTO USERTYPE (USERTYPENAME) VALUES (@UserType)", Connect);
@@ -74,8 +46,9 @@ namespace User
             {
                 if (TypeID == null)
                 {
-                    string scriptText = "alert('Record Existing'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Existing')", true);
+                    //string scriptText = "alert('Record Existing'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
                 }
                 else
                 {
@@ -103,6 +76,38 @@ namespace User
 
                     }
                 }
+            }
+        }
+
+        protected void _txtbxUserType_PreRender(object sender, EventArgs e)
+        {
+            string TypeID = Request.QueryString["id"];
+            if (TypeID == null)
+            {
+
+            }
+            else
+            {
+                string Conn = ConfigurationManager.ConnectionStrings["_cnnstrngUserDBOne"].ConnectionString;
+                SqlConnection Connect = new SqlConnection(Conn);
+                Connect.Open();
+                SqlCommand Cmd = new SqlCommand("SELECT * FROM USERTYPE WHERE USERTYPEID=@TypeID", Connect);
+                Cmd.Parameters.AddWithValue("@TypeID", TypeID);
+                SqlDataReader Reader = Cmd.ExecuteReader();
+                while (Reader.Read())
+                {
+                    _txtbxUserType.Text = Reader["USERTYPENAME"].ToString();
+                }
+                Connect.Close();
+                //Connect.Open();
+                //Cmd = new SqlCommand("SELECT PERMITID FROM USERPERMIT WHERE USERTYPEID=@TypeID", Connect);
+                //Cmd.Parameters.AddWithValue("@TypeID", TypeID);
+                //Reader = Cmd.ExecuteReader();
+                //for (int i = 0; i < Reader.FieldCount; i++)
+                //{
+                //    _chkbxlstAccess.SelectedValue = Reader["PERMITID"].ToString();
+                //}
+                //Connect.Close();
             }
         }
     }
