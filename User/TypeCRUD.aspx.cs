@@ -29,7 +29,7 @@ namespace User
             Cmd.Parameters.AddWithValue("@UserType", UserType);
             Int32 Count = (Int32)Cmd.ExecuteScalar();
             Connect.Close();
-            if (Count == 0)
+            if (Count < 0)
             {
                 Connect.Open();
                 Cmd = new SqlCommand("INSERT INTO USERTYPE (USERTYPENAME) VALUES (@UserType)", Connect);
@@ -46,9 +46,8 @@ namespace User
             {
                 if (TypeID == null)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Existing')", true);
-                    //string scriptText = "alert('Record Existing'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
-                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
+                    string scriptText = "alert('Record Existing'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
                 }
                 else
                 {
@@ -99,24 +98,61 @@ namespace User
                     _txtbxUserType.Text = Reader["USERTYPENAME"].ToString();
                 }
                 Connect.Close();
-                Connect.Open();
-                Cmd = new SqlCommand("SELECT PERMITID FROM USERPERMIT WHERE USERTYPEID=@TypeID", Connect);
-                Cmd.Parameters.AddWithValue("@TypeID", TypeID);
-                Reader = Cmd.ExecuteReader();
-                while (Reader.Read())
-                {
-                    ListItem PermitIDs = _chkbxlstAccess.Items.FindByValue(Reader["PERMITID"].ToString());
-                    if (PermitIDs != null)
-                    {
-                        PermitIDs.Selected = true;
-                    }
-                    //for (int i=0; i < Reader.FieldCount; i++)
-                    //{
-                    //    _chkbxlstAccess.SelectedValue = Reader["PERMITID"].ToString();
-                    //}
-                }
-                Connect.Close();
+                //Connect.Open();
+                //Cmd = new SqlCommand("SELECT PERMITID FROM USERPERMIT WHERE USERTYPEID=@TypeID", Connect);
+                //Cmd.Parameters.AddWithValue("@TypeID", TypeID);
+                //Reader = Cmd.ExecuteReader();
+                //for (int i = 0; i < Reader.FieldCount; i++)
+                //{
+                //    _chkbxlstAccess.SelectedValue = Reader["PERMITID"].ToString();
+                //}
+                //Connect.Close();
             }
+
         }
     }
 }
+
+//Connect.Open();
+//Cmd = new SqlCommand("SELECT COUNT (*) FROM USERPERMIT WHERE USERTYPEID=@TypeID", Connect);
+//Cmd.Parameters.AddWithValue("@TypeID", Request.QueryString["id"]);
+//Count = (Int32)Cmd.ExecuteScalar();
+//Connect.Close();
+//if (Count > 0)
+//{
+//    for (int i = 0; i <= Count - 1; i++)
+//    {
+//        Connect.Open();
+//        Cmd = new SqlCommand("DELETE FROM USERPERMIT WHERE USERTYPEID=@TypeID", Connect);
+//        Cmd.Parameters.AddWithValue("@TypeID", Request.QueryString["id"]);
+//        Cmd.ExecuteNonQuery();
+//        Connect.Close();
+//    }
+//    for (int i = 0; i <= _chkbxlstAccess.Items.Count - 1; i++)
+//    {
+//        if (_chkbxlstAccess.Items[i].Selected)
+//        {
+//            Connect.Open();
+//            Cmd = new SqlCommand("INSERT INTO USERPERMIT (USERTYPEID,PERMITID) VALUES (@TypeID,@PermitID)", Connect);
+//            Cmd.Parameters.AddWithValue("@TypeID", Request.QueryString["id"]);
+//            Cmd.Parameters.AddWithValue("@PermitID", _chkbxlstAccess.Items[i].Value);
+//            Cmd.ExecuteNonQuery();
+//            Connect.Close();
+//        }
+//    }
+//}
+//else
+//{
+//    for (int i = 0; i <= _chkbxlstAccess.Items.Count - 1; i++)
+//    {
+//        if (_chkbxlstAccess.Items[i].Selected)
+//        {
+//            Connect.Open();
+//            Cmd = new SqlCommand("INSERT INTO USERPERMIT (USERTYPEID,PERMITID) VALUES (@TypeID,@PermitID)", Connect);
+//            Cmd.Parameters.AddWithValue("@TypeID", Request.QueryString["id"]);
+//            Cmd.Parameters.AddWithValue("@PermitID", _chkbxlstAccess.Items[i].Value);
+//            Cmd.ExecuteNonQuery();
+//            Connect.Close();
+//        }
+//    }
+//}

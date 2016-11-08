@@ -9,7 +9,7 @@
         <div class="well">
             <div class="row">
                 <label class="control-label">User Type Name:</label>
-                <asp:TextBox ID="_txtbxUserType" runat="server" CssClass="form-control" OnPreRender="_txtbxUserType_PreRender" ></asp:TextBox>
+                <asp:TextBox ID="_txtbxUserType" runat="server" CssClass="form-control" OnPreRender="_txtbxUserType_PreRender"></asp:TextBox>
                 <label class="control-label">Permission:</label>
                 <asp:CheckBoxList ID="_chkbxlstAccess" runat="server" DataSourceID="_dtsrcType" DataTextField="PERMITNAME" DataValueField="PERMITID" CssClass="checkbox checkbox-danger" RepeatDirection="VERTICAL" TextAlign="Right"></asp:CheckBoxList>
                 <asp:SqlDataSource runat="server" ID="_dtsrcType" ConnectionString='<%$ ConnectionStrings:_cnnstrngUserDBOne %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT]"></asp:SqlDataSource>
