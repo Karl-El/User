@@ -99,15 +99,23 @@ namespace User
                     _txtbxUserType.Text = Reader["USERTYPENAME"].ToString();
                 }
                 Connect.Close();
-                //Connect.Open();
-                //Cmd = new SqlCommand("SELECT PERMITID FROM USERPERMIT WHERE USERTYPEID=@TypeID", Connect);
-                //Cmd.Parameters.AddWithValue("@TypeID", TypeID);
-                //Reader = Cmd.ExecuteReader();
-                //for (int i = 0; i < Reader.FieldCount; i++)
-                //{
-                //    _chkbxlstAccess.SelectedValue = Reader["PERMITID"].ToString();
-                //}
-                //Connect.Close();
+                Connect.Open();
+                Cmd = new SqlCommand("SELECT PERMITID FROM USERPERMIT WHERE USERTYPEID=@TypeID", Connect);
+                Cmd.Parameters.AddWithValue("@TypeID", TypeID);
+                Reader = Cmd.ExecuteReader();
+                while (Reader.Read())
+                {
+                    ListItem PermitIDs = _chkbxlstAccess.Items.FindByValue(Reader["PERMITID"].ToString());
+                    if (PermitIDs != null)
+                    {
+                        PermitIDs.Selected = true;
+                    }
+                    //for (int i=0; i < Reader.FieldCount; i++)
+                    //{
+                    //    _chkbxlstAccess.SelectedValue = Reader["PERMITID"].ToString();
+                    //}
+                }
+                Connect.Close();
             }
         }
     }
