@@ -3,6 +3,37 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <asp:LinkButton ID="_lblUserName" runat="server" Text="Logout" CssClass="btn btn-link" /></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <asp:LinkButton ID="_lnkbtnPermission" runat="server" CssClass="btn btn-link" OnClick="_lnkbtnPermission_Click"><span class="glyphicon glyphicon-user"></span> User Permission</asp:LinkButton></li>
+                    <li>
+                        <asp:LinkButton runat="server" ID="_btnAdd" CssClass="btn btn-link" OnClick="_btnAdd_Click"><span class="glyphicon glyphicon-plus"></span> Add New User</asp:LinkButton></li>
+                    <li>
+                        <asp:LinkButton ID="_lnkbtnLogOut" runat="server" Text="Logout" CssClass="btn btn-link" OnClick="_btnLogOut_Click" /></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+    <br />
     <asp:ListView ID="_lstvwUserCRUD" runat="server" DataSourceID="_dtsrcUserCRUD" DataKeyNames="USERID" InsertItemPosition="LastItem" OnDataBound="_lstvwUserCRUD_DataBound" OnItemDeleted="_lstvwUserCRUD_ItemDeleted" OnItemInserted="_lstvwUserCRUD_ItemInserted" OnItemUpdated="_lstvwUserCRUD_ItemUpdated">
         <%--<AlternatingItemTemplate>
             <span style="background-color: #FAFAD2; color: #284775;">USERID:
@@ -22,7 +53,8 @@
             </span>
         </AlternatingItemTemplate>--%>
         <EditItemTemplate>
-            <span style="">
+            <div class="col-sm-4"></div>
+            <div style="" class="col-sm-4">
                 <div class="well">
                     <%--<label class="control-label">ID:</label>
                 <asp:Label Text='<%# Eval("USERID") %>' runat="server" ID="USERIDLabel1" /><br />--%>
@@ -33,20 +65,22 @@
                     <label class="control-label">Password: </label>
                     <asp:TextBox Text='<%# Bind("USERPASS") %>' runat="server" ID="USERPASSTextBox" CssClass="form-control" /><br />
                     <label class="control-label">User Type:</label>
-                    <asp:DropDownList ID="_ddlstUserType" runat="server" DataSourceID="_dtsrcUserTypeDropDown"  SelectedValue='<%# Bind("USERTYPEID") %>' DataTextField="USERTYPENAME" DataValueField="USERTYPEID" CssClass="form-control"></asp:DropDownList>
+                    <asp:DropDownList ID="_ddlstUserType" runat="server" DataSourceID="_dtsrcUserTypeDropDown" SelectedValue='<%# Bind("USERTYPEID") %>' DataTextField="USERTYPENAME" DataValueField="USERTYPEID" CssClass="form-control"></asp:DropDownList>
                     <asp:SqlDataSource runat="server" ID="_dtsrcUserTypeDropDown" ConnectionString='<%$ ConnectionStrings:_cnnstrngUserDBOne %>' SelectCommand="SELECT [USERTYPEID], [USERTYPENAME] FROM [USERTYPE]"></asp:SqlDataSource>
                     <hr />
                     <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Save" CssClass="btn btn-primary" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" CssClass="btn btn-danger" OnClientClick=" window.location = '/UserList.aspx';this.form.reset();return false;" />
                     <br />
                 </div>
-            </span>
+            </div>
+            <div class="col-sm-4"></div>
         </EditItemTemplate>
         <EmptyDataTemplate>
             <span>No data was returned.</span>
         </EmptyDataTemplate>
         <InsertItemTemplate>
-            <span style="">
+            <div class="col-sm-4"></div>
+            <div style="" class="col-sm-4">
                 <div class="well">
                     <label class="control-label">Username:</label>
                     <asp:TextBox Text='<%# Bind("USERNAME") %>' runat="server" ID="USERNAMETextBox" CssClass="form-control" /><br />
@@ -57,15 +91,17 @@
                     <label class="control-label">User Type:</label>
                     <asp:DropDownList ID="_ddlstUserType" runat="server" SelectedValue='<%# Bind("USERTYPEID") %>' DataSourceID="_dtsrcUserTypeDropDown" DataTextField="USERTYPENAME" DataValueField="USERTYPEID" CssClass="form-control"></asp:DropDownList>
                     <asp:SqlDataSource runat="server" ID="_dtsrcUserTypeDropDown" ConnectionString='<%$ ConnectionStrings:_cnnstrngUserDBOne %>' SelectCommand="SELECT [USERTYPEID], [USERTYPENAME] FROM [USERTYPE]"></asp:SqlDataSource>
-                    <hr/>
-                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Save" CssClass="btn btn-primary"/>
+                    <hr />
+                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Save" CssClass="btn btn-primary" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" CssClass="btn btn-danger" OnClientClick=" window.location = '/UserList.aspx';this.form.reset();return false;" />
                     <br />
                 </div>
-            </span>
+            </div>
+            <div class="col-sm-4"></div>
         </InsertItemTemplate>
         <ItemTemplate>
-            <span style="">
+            <div class="col-sm-4"></div>
+            <div style="" class="col-sm-4">
                 <div class="well">
                     <%--USERID:
                 <asp:Label Text='<%# Eval("USERID") %>' runat="server" ID="USERIDLabel" /><br />--%>
@@ -81,7 +117,8 @@
                     <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" CssClass="btn btn-danger" />
                     <input type="button" value="Back" onclick="window.location = 'UserList.aspx';" class="btn btn-warning" />
                 </div>
-            </span>
+            </div>
+            <div class="col-sm-4"></div>
         </ItemTemplate>
         <LayoutTemplate>
             <div runat="server" id="itemPlaceholderContainer" style="font-family: Verdana, Arial, Helvetica, sans-serif;"><span runat="server" id="itemPlaceholder" /></div>
@@ -132,12 +169,13 @@
             <asp:Parameter Name="USERTYPEID" Type="Int32"></asp:Parameter>
             <asp:Parameter Name="USERID" Type="Int32"></asp:Parameter>
         </UpdateParameters>
-    </asp:SqlDataSource><div class="text-center">
+    </asp:SqlDataSource>
+    <%--<div class="text-center">
         <hr />
         <footer>
             <p>
-                <asp:Button ID="_btnLogOut" runat="server" Text="Logout" CssClass="btn btn-info" OnClick="_btnLogOut_Click"/>
+                <asp:Button ID="_btnLogOut" runat="server" Text="Logout" CssClass="btn btn-info" OnClick="_btnLogOut_Click" />
             </p>
         </footer>
-    </div>
+    </div>--%>
 </asp:Content>

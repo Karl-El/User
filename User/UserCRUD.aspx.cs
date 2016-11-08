@@ -11,7 +11,31 @@ namespace User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["id"] == null)
+            {
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Wrong Entries", "alert('Logged Out Timeout');", true);
+                Response.Redirect("Login.aspx");
 
+            }
+            else
+            {
+                _lblUserName.Text = "Hello, " + Session["id"].ToString() + "!";
+            }
+        }
+        protected void _btnAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UserCRUD.aspx");
+        }
+
+        protected void _btnLogOut_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Response.Redirect("LogIn.aspx");
+        }
+
+        protected void _lnkbtnPermission_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TypeList.aspx");
         }
 
         protected void _lstvwUserCRUD_DataBound(object sender, EventArgs e)
@@ -41,11 +65,6 @@ namespace User
             string scriptText = "alert('Record Deleted'); window.location='" + Request.ApplicationPath + "UserList.aspx'";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
 
-        }
-        protected void _btnLogOut_Click(object sender, EventArgs e)
-        {
-            Session.RemoveAll();
-            Response.Redirect("LogIn.aspx");
         }
     }
 }

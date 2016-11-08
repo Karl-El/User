@@ -13,6 +13,42 @@ namespace User {
     public partial class UserCRUD {
         
         /// <summary>
+        /// _lblUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton _lblUserName;
+        
+        /// <summary>
+        /// _lnkbtnPermission control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton _lnkbtnPermission;
+        
+        /// <summary>
+        /// _btnAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton _btnAdd;
+        
+        /// <summary>
+        /// _lnkbtnLogOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton _lnkbtnLogOut;
+        
+        /// <summary>
         /// _lstvwUserCRUD control.
         /// </summary>
         /// <remarks>
@@ -29,14 +65,5 @@ namespace User {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource _dtsrcUserCRUD;
-        
-        /// <summary>
-        /// _btnLogOut control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button _btnLogOut;
     }
 }
