@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ListView ID="_lstvwTypeCRUD" runat="server" DataSourceID="_dtsrcTypeCRUD" DataKeyNames="USERTYPEID" InsertItemPosition="LastItem" OnDataBound="_lstvwTypeCRUD_DataBound">
+    <asp:ListView ID="_lstvwTypeCRUD" runat="server" DataSourceID="_dtsrcTypeCRUD" DataKeyNames="USERTYPEID" InsertItemPosition="LastItem" OnDataBound="_lstvwTypeCRUD_DataBound" OnItemInserting="_lstvwTypeCRUD_ItemInserting" OnItemUpdating="_lstvwTypeCRUD_ItemUpdating" OnItemInserted="_lstvwTypeCRUD_ItemInserted" OnItemUpdated="_lstvwTypeCRUD_ItemUpdated">
         <%--<AlternatingItemTemplate>
             <span style="">USERTYPEID:
                 <asp:Label Text='<%# Eval("USERTYPEID") %>' runat="server" ID="USERTYPEIDLabel" /><br />
@@ -18,11 +18,14 @@
         <EditItemTemplate>
             <div class="col-sm-4 "></div>
             <div style="" class="col-sm-4 well">
-                <asp:Label Text='<%# Eval("USERTYPEID") %>' runat="server" ID="USERTYPEIDLabel" Visible="false"/><br />
+                <asp:Label Text='<%# Eval("USERTYPEID") %>' runat="server" ID="USERTYPEIDLabel" Visible="false" /><br />
                 <label class="control-label">User Type Name:</label>
-                <asp:TextBox Text='<%# Bind("USERTYPENAME") %>' runat="server" ID="USERTYPENAMETextBox" CssClass="form-control" /><hr />
+                <asp:TextBox Text='<%# Bind("USERTYPENAME") %>' runat="server" ID="USERTYPENAMETextBox" CssClass="form-control" />
+                <asp:CheckBoxList ID="_chkbxlstPermit" runat="server" DataSourceID="_dtsrcPermit" DataTextField="PERMITNAME" DataValueField="PERMITID" CssClass="checkbox checkbox-info"></asp:CheckBoxList>
+                <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:_cnnstrngUserDBOne %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT]"></asp:SqlDataSource>
+                <hr />
                 <asp:Button runat="server" CommandName="Update" Text="Update" ID="UpdateButton" CssClass="btn btn-primary" />
-                <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" CssClass="btn btn-danger" OnClientClick="window.location = '/TypeList.aspx'; this.form.reset();return false;"/><br />
+                <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" CssClass="btn btn-danger" OnClientClick="window.location = '/TypeList.aspx'; this.form.reset();return false;" /><br />
                 <br />
             </div>
             <div class="col-sm-4"></div>
@@ -34,9 +37,12 @@
             <div class="col-sm-4"></div>
             <div style="" class="col-sm-4 well">
                 <label class="control-label">User Type Name:</label>
-                <asp:TextBox Text='<%# Bind("USERTYPENAME") %>' runat="server" ID="USERTYPENAMETextBox" CssClass="form-control" /><hr />
-                <asp:Button runat="server" CommandName="Insert" Text="Insert" ID="InsertButton" CssClass="btn btn-primary" />
-                <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" CssClass="btn btn-danger" OnClientClick="window.location = '/TypeList.aspx'; this.form.reset();return false;"/><br />
+                <asp:TextBox Text='<%# Bind("USERTYPENAME") %>' runat="server" ID="USERTYPENAMETextBox" CssClass="form-control" />
+                <asp:CheckBoxList ID="_chkbxlstPermit" runat="server" DataSourceID="_dtsrcPermit" DataTextField="PERMITNAME" DataValueField="PERMITID" CssClass="checkbox checkbox-info"></asp:CheckBoxList>
+                <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:_cnnstrngUserDBOne %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT]"></asp:SqlDataSource>
+                <hr />
+                <asp:Button runat="server" CommandName="Insert" Text="Insert" ID="InsertButton" CssClass="btn btn-primary"/>
+                <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" CssClass="btn btn-danger" OnClientClick="window.location = '/TypeList.aspx'; this.form.reset();return false;" /><br />
                 <br />
             </div>
             <div class="col-sm-4"></div>
@@ -44,7 +50,7 @@
         <ItemTemplate>
             <div class="col-sm-4"></div>
             <div style="" class="col-sm-4 well">
-                <asp:Label Text='<%# Eval("USERTYPEID") %>' runat="server" ID="USERTYPEIDLabel" Visible="false"/><br />
+                <asp:Label Text='<%# Eval("USERTYPEID") %>' runat="server" ID="USERTYPEIDLabel" Visible="false" /><br />
                 <label class="control-label">User Type Name:</label>
                 <asp:Label Text='<%# Eval("USERTYPENAME") %>' runat="server" ID="USERTYPENAMELabel" />
                 <asp:BulletedList ID="_blltlstUserPermit" runat="server" DataSourceID="_dtsrcUserPermit" DataTextField="PERMITNAME" DataValueField="PERMITID"></asp:BulletedList>
