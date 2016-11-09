@@ -36,7 +36,7 @@ namespace User
                 }
                 else
                 {
-                    _hyprlnkEditPermit.Text = "Edit Permission";
+                    _hyprlnkEditPermit.Text = "Edit";
                 }
 
             }

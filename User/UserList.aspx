@@ -101,9 +101,9 @@
         </EmptyDataTemplate>
         <ItemTemplate>
             <tr onclick="window.location.href='<%# System.Web.VirtualPathUtility.ToAbsolute("~/UserCrud.aspx?id=" + Eval("USERID"))%>';">
-                <td onclick="return confirm('Are you sure to delete?')">
+                <%--<td onclick="return confirm('Are you sure to delete?')">
                     <asp:LinkButton ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" CssClass="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></asp:LinkButton>
-                </td>
+                </td>--%>
                 <%--<td>
                     <asp:Label ID="USERIDLabel" runat="server" Text='<%# Eval("USERID") %>' />
                 </td>--%>
@@ -128,13 +128,13 @@
                     <div id="Div3" runat="server">
                         <table id="itemPlaceholderContainer" runat="server" border="0" style="" class="table table-condensed table-hover">
                             <tr id="Tr1" runat="server" style="" class="info">
-                                <th runat="server"></th>
+                                <%--<th runat="server"></th>--%>
                                 <%--<th runat="server">USERID</th>--%>
                                 <th runat="server">Username</th>
                                 <th runat="server">Email Address</th>
                                 <th runat="server">Password</th>
                                 <th runat="server">User Type</th>
-                                <th runat="server"></th>
+                                <%--<th runat="server"></th>--%>
                             </tr>
                             <tr runat="server" id="itemPlaceholder">
                             </tr>

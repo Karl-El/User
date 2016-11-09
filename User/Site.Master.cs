@@ -15,7 +15,7 @@ namespace User
         }
         protected void _btnAdd_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/UserCRUD.aspx");
+            Response.Redirect("UserList.aspx");
         }
 
         protected void _btnLogOut_Click(object sender, EventArgs e)

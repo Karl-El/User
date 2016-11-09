@@ -78,7 +78,6 @@
     <Content Include="TypeList.aspx" />
     <Content Include="UserCRUD.aspx" />
     <Content Include="UserList.aspx" />
-    <Content Include="UserViewOnlyList.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -131,13 +130,6 @@
     </Compile>
     <Compile Include="UserList.aspx.designer.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UserViewOnlyList.aspx.cs">
-      <DependentUpon>UserViewOnlyList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserViewOnlyList.aspx.designer.cs">
-      <DependentUpon>UserViewOnlyList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -18,6 +18,9 @@ namespace User
             LinkButton _lnkbtnPermission = (LinkButton)Page.Master.FindControl("_lnkbtnPermission");
             LinkButton _btnAdd = (LinkButton)Page.Master.FindControl("_btnAdd");
             LinkButton _lnkbtnLogOut = (LinkButton)Page.Master.FindControl("_lnkbtnLogOut");
+            _btnAdd.Visible = false;
+            _lnkbtnPermission.Visible = false;
+            _lnkbtnLogOut.Visible = false;
 
         }
 

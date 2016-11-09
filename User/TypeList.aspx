@@ -20,7 +20,7 @@
                                 <asp:ControlParameter ControlID="USERTYPEIDLabel" PropertyName="Text" Name="USERTYPEID"></asp:ControlParameter>
                             </SelectParameters>
                         </asp:SqlDataSource>
-                        <asp:HyperLink ID="_hyprlnkEditPermit" runat="server" NavigateUrl='<%#"~/TypeCRUD.aspx?id="+Eval("USERTYPEID") %>' CssClass="btn btn-link">Edit Permission</asp:HyperLink>
+                        <asp:HyperLink ID="_hyprlnkEditPermit" runat="server" NavigateUrl='<%#"~/TypeCRUD.aspx?id="+Eval("USERTYPEID") %>' CssClass="btn btn-info">Edit</asp:HyperLink>
                     </div>
                 </asp:Panel>
             </div>
