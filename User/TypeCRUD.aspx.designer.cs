@@ -13,48 +13,21 @@ namespace User {
     public partial class TypeCRUD {
         
         /// <summary>
-        /// _txtbxUserType control.
+        /// _lstvwTypeCRUD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox _txtbxUserType;
+        protected global::System.Web.UI.WebControls.ListView _lstvwTypeCRUD;
         
         /// <summary>
-        /// _chkbxlstAccess control.
+        /// _dtsrcTypeCRUD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList _chkbxlstAccess;
-        
-        /// <summary>
-        /// _dtsrcType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource _dtsrcType;
-        
-        /// <summary>
-        /// SaveButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SaveButton;
-        
-        /// <summary>
-        /// CancelButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CancelButton;
+        protected global::System.Web.UI.WebControls.SqlDataSource _dtsrcTypeCRUD;
     }
 }
