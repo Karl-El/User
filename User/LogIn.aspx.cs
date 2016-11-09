@@ -20,7 +20,7 @@ namespace User
 
         protected void _btnLogIn_Click(object sender, EventArgs e)
         {
-            String Connect = ConfigurationManager.ConnectionStrings["_cnnstrngUserDBOne"].ConnectionString;
+            String Connect = ConfigurationManager.ConnectionStrings["_cnnctstrngUserDB"].ConnectionString;
             SqlConnection Con = new SqlConnection(Connect);
             SqlCommand Cmd = new SqlCommand("SELECT * FROM USERS WHERE USERNAME=@UserName AND USERPASS=@UserPass", Con);
             Cmd.Parameters.AddWithValue("@UserName", _txtbxUserName.Text.Trim());

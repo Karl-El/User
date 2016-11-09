@@ -11,7 +11,7 @@ namespace User
 {
     public partial class TypeCRUD : System.Web.UI.Page
     {
-        String Conn = ConfigurationManager.ConnectionStrings["_cnnstrngUserDBOne"].ConnectionString;
+        String Conn = ConfigurationManager.ConnectionStrings["_cnnctstrngUserDB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
 
