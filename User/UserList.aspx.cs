@@ -19,23 +19,9 @@ namespace User
             }
             else
             {
-                _lblUserName.Text = "Hello, " + Session["id"].ToString()+"!";
+                LinkButton _lnkbtnUserName = (LinkButton)Page.Master.FindControl("_lnkbtnUserName");
+                _lnkbtnUserName.Text = "Hello, " + Session["id"].ToString() + "!";
             }
-        }
-        protected void _btnAdd_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/UserCRUD.aspx");
-        }
-
-        protected void _btnLogOut_Click(object sender, EventArgs e)
-        {
-            Session.RemoveAll();
-            Response.Redirect("LogIn.aspx");
-        }
-
-        protected void _lnkbtnPermission_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("TypeList.aspx");
         }
     }
 }

@@ -13,42 +13,6 @@ namespace User {
     public partial class UserList {
         
         /// <summary>
-        /// _lblUserName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton _lblUserName;
-        
-        /// <summary>
-        /// _lnkbtnPermission control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton _lnkbtnPermission;
-        
-        /// <summary>
-        /// _btnAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton _btnAdd;
-        
-        /// <summary>
-        /// _lnkbtnLogOut control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton _lnkbtnLogOut;
-        
-        /// <summary>
         /// _lstvwUserList control.
         /// </summary>
         /// <remarks>

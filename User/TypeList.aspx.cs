@@ -11,9 +11,18 @@ namespace User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["id"] == null)
+            {
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Wrong Entries", "alert('Logged Out Timeout');", true);
+                Response.Redirect("Login.aspx");
 
+            }
+            else
+            {
+                LinkButton _lnkbtnUserName = (LinkButton)Page.Master.FindControl("_lnkbtnUserName");
+                _lnkbtnUserName.Text = "Hello, " + Session["id"].ToString() + "!";
+            }
         }
-
         protected void _lstvwTypeList_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
             if (e.Item.ItemType == ListViewItemType.DataItem)

@@ -13,5 +13,26 @@ namespace User
         {
 
         }
+        protected void _btnAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UserCRUD.aspx");
+        }
+
+        protected void _btnLogOut_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Response.Redirect("LogIn.aspx");
+        }
+
+        protected void _lnkbtnPermission_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TypeList.aspx");
+        }
+
+        protected void _lnkbtnUserName_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+
+        }
     }
 }

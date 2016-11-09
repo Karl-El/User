@@ -3,37 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-left">
-                    <li>
-                        <asp:LinkButton ID="_lblUserName" runat="server" Text="Logout" CssClass="btn btn-link" /></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <asp:LinkButton ID="_lnkbtnPermission" runat="server" CssClass="btn btn-link" OnClick="_lnkbtnPermission_Click"><span class="glyphicon glyphicon-user"></span> User Permission</asp:LinkButton></li>
-                    <li>
-                        <asp:LinkButton runat="server" ID="_btnAdd" CssClass="btn btn-link" OnClick="_btnAdd_Click"><span class="glyphicon glyphicon-plus"></span> Add New User</asp:LinkButton></li>
-                    <li>
-                        <asp:LinkButton ID="_lnkbtnLogOut" runat="server" Text="Logout" CssClass="btn btn-link" OnClick="_btnLogOut_Click" /></li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
-        </div>
-    </nav>
-    <br />
-    <br />
-    <br />
-    <br />
     <asp:ListView ID="_lstvwUserCRUD" runat="server" DataSourceID="_dtsrcUserCRUD" DataKeyNames="USERID" InsertItemPosition="LastItem" OnDataBound="_lstvwUserCRUD_DataBound" OnItemDeleted="_lstvwUserCRUD_ItemDeleted" OnItemInserted="_lstvwUserCRUD_ItemInserted" OnItemUpdated="_lstvwUserCRUD_ItemUpdated">
         <%--<AlternatingItemTemplate>
             <span style="background-color: #FAFAD2; color: #284775;">USERID:
