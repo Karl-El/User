@@ -41,24 +41,25 @@ namespace User
             if (DTable.Rows.Count > 0)
             {
                 Session["id"] = _txtbxUserName.Text;
-                Cmd = new SqlCommand("SELECT * FROM USERS WHERE USERNAME=@UserName", Con);
-                Cmd.Parameters.AddWithValue("@UserName", _txtbxUserName.Text.Trim());
-                SqlDataReader Reader = Cmd.ExecuteReader();
-                while (Reader.Read())
-                {
-                    int UserTypeID = Convert.ToInt32(Reader["USERTYPEID"].ToString());
-                    if (UserTypeID == 1)
-                    {
-                        _btnAdd.Visible = true;
-                        _lnkbtnPermission.Visible = true;
-                        _lnkbtnLogOut.Visible = true;
-                        Response.Redirect("Default.aspx");
-                    }
-                    else
-                    {
-                        Response.Redirect("UserList.aspx");
-                    }
-                }
+                Response.Redirect("Default.aspx");
+                //Cmd = new SqlCommand("SELECT * FROM USERS WHERE USERNAME=@UserName", Con);
+                //Cmd.Parameters.AddWithValue("@UserName", _txtbxUserName.Text.Trim());
+                //SqlDataReader Reader = Cmd.ExecuteReader();
+                //while (Reader.Read())
+                //{
+                //    int UserTypeID = Convert.ToInt32(Reader["USERTYPEID"].ToString());
+                //    if (UserTypeID == 1)
+                //    {
+                //        _btnAdd.Visible = true;
+                //        _lnkbtnPermission.Visible = true;
+                //        _lnkbtnLogOut.Visible = true;
+                //        Response.Redirect("Default.aspx");
+                //    }
+                //    else
+                //    {
+                //        Response.Redirect("UserList.aspx");
+                //    }
+                //}
 
             }
             else
