@@ -124,11 +124,11 @@
             </tr>
         </ItemTemplate>
         <LayoutTemplate>
-            <div id="Div1" runat="server" class="well table-responsive">
-                <div id="Div2" runat="server">
-                    <div id="Div3" runat="server">
+            <div runat="server" class="well table-responsive">
+                <div runat="server">
+                    <div runat="server">
                         <table id="itemPlaceholderContainer" runat="server" border="0" style="" class="table table-condensed table-hover">
-                            <tr id="Tr1" runat="server" style="" class="info">
+                            <tr runat="server" style="" class="info">
                                 <%--<th runat="server"></th>--%>
                                 <%--<th runat="server">USERID</th>--%>
                                 <th runat="server">Username</th>
@@ -137,31 +137,21 @@
                                 <th runat="server">User Type</th>
                                 <%--<th runat="server"></th>--%>
                             </tr>
-                            <tr runat="server" id="itemPlaceholder">
+                            <tr runat="server" id="itemPlaceholder" class="danger">
                             </tr>
-                            <%--<tr runat="server" style="" align="right">
-                                <td colspan="5">
-                                    <asp:LinkButton runat="server" ID="_btnAdd" CssClass="btn btn-info " OnClick="_btnAdd_Click"><span class="glyphicon glyphicon-plus"></span> Add New User</asp:LinkButton>
-                                    <input type="button" value="Back" onclick="window.location = 'UserCRUD.aspx';" class="btn btn-warning" />
-                                </td>
-                            </tr>--%>
                         </table>
                     </div>
                 </div>
-                <tr runat="server">
-                    <td runat="server" style="">
-                        <asp:DataPager ID="DataPager1" runat="server" PageSize="5">
-                            <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="True" ButtonCssClass="btn btn-info btn-sm" />
-                                <asp:NumericPagerField NumericButtonCssClass="label label-success" CurrentPageLabelCssClass="badge" />
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="True" ShowPreviousPageButton="False" ButtonCssClass="btn btn-info btn-sm" />
-                            </Fields>
-                        </asp:DataPager>
-                    </td>
-                </tr>
             </div>
         </LayoutTemplate>
     </asp:ListView>
+    <asp:DataPager ID="DataPager1" runat="server" PageSize="5" PagedControlID="_lstvwUserList">
+        <Fields>
+            <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="True" ButtonCssClass="btn btn-primary btn-sm" />
+            <asp:NumericPagerField NumericButtonCssClass="label label-success" CurrentPageLabelCssClass="badge" />
+            <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="True" ShowPreviousPageButton="False" ButtonCssClass="btn btn-primary btn-sm" />
+        </Fields>
+    </asp:DataPager>
     <asp:SqlDataSource runat="server" ID="_dtsrcUserList" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' DeleteCommand="DELETE FROM [USERS] WHERE [USERID] = @USERID" InsertCommand="INSERT INTO [USERS] ([USERNAME], [EMAIL], [USERPASS], [USERTYPEID]) VALUES (@USERNAME, @EMAIL, @USERPASS, @USERTYPEID)" SelectCommand="SELECT USERS.USERID, USERS.USERNAME, USERS.EMAIL, USERS.USERPASS, USERTYPE.USERTYPENAME FROM USERS INNER JOIN USERTYPE ON USERS.USERTYPEID = USERTYPE.USERTYPEID" UpdateCommand="UPDATE [USERS] SET [USERNAME] = @USERNAME, [EMAIL] = @EMAIL, [USERPASS] = @USERPASS, [USERTYPEID] = @USERTYPEID WHERE [USERID] = @USERID">
         <DeleteParameters>
             <asp:Parameter Name="USERID" Type="Int32"></asp:Parameter>
@@ -184,7 +174,7 @@
         <hr />
         <%--<footer>
             <p>
-                <asp:Button ID="_btnLogOut" runat="server" Text="Logout" CssClass="btn btn-info" OnClick="_btnLogOut_Click" />
+                <asp:Button ID="_btnLogOut" runat="server" Text="Logout" CssClass="btn btn-primary" OnClick="_btnLogOut_Click" />
             </p>
         </footer>--%>
     </div>

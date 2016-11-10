@@ -14,12 +14,13 @@ namespace User
         String Conn = ConfigurationManager.ConnectionStrings["_cnnctstrngUserDB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            int UserTypeID = 0;
             LinkButton _lnkbtnPermission = (LinkButton)Page.Master.FindControl("_lnkbtnPermission");
             LinkButton _lnkbtnUserList = (LinkButton)Page.Master.FindControl("_lnkbtnUserList");
             LinkButton _lnkbtnLogOut = (LinkButton)Page.Master.FindControl("_lnkbtnLogOut");
             if (Session["id"] == null)
             {
-                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Wrong Entries", "alert('Logged Out Timeout');", true);
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Wrong Entries", "alert('Logged Out');", true);
                 Response.Redirect("Login.aspx");
 
             }
@@ -35,7 +36,7 @@ namespace User
                 SqlDataReader Reader = Cmd.ExecuteReader();
                 while (Reader.Read())
                 {
-                    int UserTypeID = Convert.ToInt32(Reader["USERTYPEID"].ToString());
+                    UserTypeID = Convert.ToInt32(Reader["USERTYPEID"].ToString());
                     if (UserTypeID == 1)
                     {
                         _lnkbtnPermission.Visible = true;
@@ -46,6 +47,24 @@ namespace User
                     }
                 }
                 Connect.Close();
+
+                Cmd = new SqlCommand("SELECT PERMITID FROM USERPERMIT WHERE USERTYPEID=@UserTypeID", Connect);
+                Cmd.Parameters.AddWithValue("@UserTypeID", UserTypeID);
+                Connect.Open();
+                Reader = Cmd.ExecuteReader();
+                while (Reader.Read())
+                {
+                    //if (Convert.ToInt32(Reader["PERMITID"].ToString()) == 2)
+                    //{
+                    //    _btnAddUser.Visible = true;
+                    //}
+                    //else
+                    //{
+                    //    _btnAddUser.Visible = false;
+                    //}
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Wrong Entries", "alert('"+ Reader["PERMITID"].ToString() + "');", true);
+                }
+
             }
         }
 

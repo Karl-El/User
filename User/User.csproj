@@ -65,6 +65,7 @@
     <Content Include="Content\checkbox.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\lumen.css" />
+    <Content Include="Content\paper.css" />
     <Content Include="Default.aspx" />
     <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />

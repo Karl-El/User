@@ -79,7 +79,8 @@
                     <label class="control-label">Email Address:</label>
                     <asp:Label Text='<%# Eval("EMAIL") %>' runat="server" ID="EMAILLabel" /><br />
                     <label class="control-label">Password: </label>
-                    <asp:Label Text='<%# Eval("USERPASS") %>' runat="server" ID="USERPASSLabel" /><br />
+                    <%--<asp:Label Text='<%# Eval("USERPASS") %>' runat="server" ID="USERPASSLabel" /><br />--%>
+                    <asp:Label Text="**************" runat="server" ID="USERPASSLabel" /><br />
                     <label class="control-label">User Type:</label>
                     <asp:Label Text='<%# Eval("USERTYPENAME") %>' runat="server" ID="USERTYPEIDLabel" /><hr />
                     <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" CssClass="btn btn-primary " />
@@ -143,7 +144,7 @@
         <hr />
         <footer>
             <p>
-                <asp:Button ID="_btnLogOut" runat="server" Text="Logout" CssClass="btn btn-info" OnClick="_btnLogOut_Click" />
+                <asp:Button ID="_btnLogOut" runat="server" Text="Logout" CssClass="btn btn-primary" OnClick="_btnLogOut_Click" />
             </p>
         </footer>
     </div>--%>
