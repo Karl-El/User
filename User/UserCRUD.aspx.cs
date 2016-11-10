@@ -15,7 +15,7 @@ namespace User
         protected void Page_Load(object sender, EventArgs e)
         {
             LinkButton _lnkbtnPermission = (LinkButton)Page.Master.FindControl("_lnkbtnPermission");
-            LinkButton _btnAdd = (LinkButton)Page.Master.FindControl("_btnAdd");
+            LinkButton _lnkbtnUserList = (LinkButton)Page.Master.FindControl("_lnkbtnUserList");
             LinkButton _lnkbtnLogOut = (LinkButton)Page.Master.FindControl("_lnkbtnLogOut");
             if (Session["id"] == null)
             {
@@ -39,6 +39,10 @@ namespace User
                     if (UserTypeID == 1)
                     {
                         _lnkbtnPermission.Visible = true;
+                    }
+                    else
+                    {
+                        _lnkbtnPermission.Visible = false;
                     }
                 }
                 Connect.Close();

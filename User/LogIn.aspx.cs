@@ -16,9 +16,9 @@ namespace User
         protected void Page_Load(object sender, EventArgs e)
         {
             LinkButton _lnkbtnPermission = (LinkButton)Page.Master.FindControl("_lnkbtnPermission");
-            LinkButton _btnAdd = (LinkButton)Page.Master.FindControl("_btnAdd");
+            LinkButton _lnkbtnUserList = (LinkButton)Page.Master.FindControl("_lnkbtnUserList");
             LinkButton _lnkbtnLogOut = (LinkButton)Page.Master.FindControl("_lnkbtnLogOut");
-            _btnAdd.Visible = false;
+            _lnkbtnUserList.Visible = false;
             _lnkbtnPermission.Visible = false;
             _lnkbtnLogOut.Visible = false;
 
@@ -27,7 +27,7 @@ namespace User
         protected void _btnLogIn_Click(object sender, EventArgs e)
         {
             LinkButton _lnkbtnPermission = (LinkButton)Page.Master.FindControl("_lnkbtnPermission");
-            LinkButton _btnAdd = (LinkButton)Page.Master.FindControl("_btnAdd");
+            LinkButton _lnkbtnUserList = (LinkButton)Page.Master.FindControl("_lnkbtnUserList");
             LinkButton _lnkbtnLogOut = (LinkButton)Page.Master.FindControl("_lnkbtnLogOut");
             String Connect = ConfigurationManager.ConnectionStrings["_cnnctstrngUserDB"].ConnectionString;
             SqlConnection Con = new SqlConnection(Connect);

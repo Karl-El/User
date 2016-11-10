@@ -49,13 +49,13 @@ namespace User {
         protected global::System.Web.UI.WebControls.LinkButton _lnkbtnPermission;
         
         /// <summary>
-        /// _btnAdd control.
+        /// _lnkbtnUserList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton _btnAdd;
+        protected global::System.Web.UI.WebControls.LinkButton _lnkbtnUserList;
         
         /// <summary>
         /// _lnkbtnLogOut control.

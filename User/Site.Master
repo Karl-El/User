@@ -34,7 +34,7 @@
                         <li>
                             <asp:LinkButton ID="_lnkbtnPermission" runat="server" CssClass="btn btn-link" OnClick="_lnkbtnPermission_Click" Visible="false"><span class="glyphicon glyphicon-lock"></span> User Permission</asp:LinkButton></li>
                         <li>
-                            <asp:LinkButton runat="server" ID="_btnAdd" CssClass="btn btn-link" OnClick="_btnAdd_Click" Visible="true"><span class="glyphicon glyphicon-user"></span> User List</asp:LinkButton></li>
+                            <asp:LinkButton runat="server" ID="_lnkbtnUserList" CssClass="btn btn-link" OnClick="_lnkbtnUserList_Click" Visible="true"><span class="glyphicon glyphicon-user"></span> User List</asp:LinkButton></li>
                         <li>
                             <asp:LinkButton ID="_lnkbtnLogOut" runat="server" Text="Logout" CssClass="btn btn-link" OnClick="_btnLogOut_Click" Visible="true"/></li>
                     </ul>

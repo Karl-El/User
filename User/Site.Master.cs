@@ -13,7 +13,7 @@ namespace User
         {
 
         }
-        protected void _btnAdd_Click(object sender, EventArgs e)
+        protected void _lnkbtnUserList_Click(object sender, EventArgs e)
         {
             Response.Redirect("UserList.aspx");
         }

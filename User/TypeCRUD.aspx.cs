@@ -15,7 +15,7 @@ namespace User
         protected void Page_Load(object sender, EventArgs e)
         {
             LinkButton _lnkbtnPermission = (LinkButton)Page.Master.FindControl("_lnkbtnPermission");
-            LinkButton _btnAdd = (LinkButton)Page.Master.FindControl("_btnAdd");
+            LinkButton _lnkbtnUserList = (LinkButton)Page.Master.FindControl("_lnkbtnUserList");
             LinkButton _lnkbtnLogOut = (LinkButton)Page.Master.FindControl("_lnkbtnLogOut");
             if (Session["id"] == null)
             {
@@ -79,7 +79,7 @@ namespace User
             SqlConnection Connect = new SqlConnection(Conn);
             TextBox USERTYPENAMETextBox = (TextBox)_lstvwTypeCRUD.InsertItem.FindControl("USERTYPENAMETextBox");
             string UserTypeName = USERTYPENAMETextBox.Text.Trim();
-            
+
             Connect.Open();
             SqlCommand Cmd = new SqlCommand("SELECT COUNT (*) FROM USERTYPE WHERE USERTYPENAME=@UserTypeName", Connect);
             Cmd.Parameters.AddWithValue("@UserTypeName", UserTypeName);
@@ -110,7 +110,7 @@ namespace User
                 for (int i = 0; i <= Count - 1; i++)
                 {
                     Connect.Open();
-                    Cmd = new SqlCommand("DELETE FROM USERPERMIT WHERE USERTYPEID=@UserTypeID", Connect);
+                    Cmd = new SqlCommand("DELETE FROM USERPERMIT WHERE USERTYPEID=@UserTypeID AND PERMITID!=1", Connect);
                     Cmd.Parameters.AddWithValue("@UserTypeID", UserTypeID);
                     Cmd.ExecuteNonQuery();
                     Connect.Close();
@@ -168,6 +168,12 @@ namespace User
                 LastUserTypeID = Convert.ToInt32(Reader.GetSqlValue(0).ToString());
             }
             Connect.Close();
+            Connect.Open();
+            Cmd = new SqlCommand("INSERT INTO USERPERMIT (USERTYPEID,PERMITID) VALUES (@UserTypeID,'1')", Connect);
+            Cmd.Parameters.AddWithValue("@UserTypeID", LastUserTypeID);
+            //Cmd.Parameters.AddWithValue("@PermitID", _chkbxlstPermit.Items[i].Value);
+            Cmd.ExecuteNonQuery();
+            Connect.Close();
             for (int i = 0; i <= _chkbxlstPermit.Items.Count - 1; i++)
             {
                 if (_chkbxlstPermit.Items[i].Selected)
@@ -180,14 +186,29 @@ namespace User
                     Connect.Close();
                 }
             }
-            Connect.Open();
-            Cmd = new SqlCommand("INSERT INTO USERPERMIT (USERTYPEID,PERMITID) VALUES (@UserTypeID,'1')", Connect);
-            Cmd.Parameters.AddWithValue("@UserTypeID", LastUserTypeID);
-            //Cmd.Parameters.AddWithValue("@PermitID", _chkbxlstPermit.Items[i].Value);
-            Cmd.ExecuteNonQuery();
-            Connect.Close();
             string scriptText = "alert('Record Inserted'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
+        }
+
+        protected void _lstvwTypeCRUD_ItemDeleted(object sender, ListViewDeletedEventArgs e)
+        {
+            string scriptText = "alert('Record Deleted'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
+        }
+
+        protected void _lstvwTypeCRUD_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListViewItemType.DataItem)
+            {
+                var EditButton = (Button)e.Item.FindControl("EditButton");
+                var DeleteButton = (Button)e.Item.FindControl("DeleteButton");
+                int UserTypeID = Convert.ToInt32(Request.QueryString["id"]);
+                if (UserTypeID == 1)
+                {
+                    EditButton.Visible = false; 
+                    DeleteButton.Visible = false;
+                }
+            }
         }
     }
 }

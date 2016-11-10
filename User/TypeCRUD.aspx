@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ListView ID="_lstvwTypeCRUD" runat="server" DataSourceID="_dtsrcTypeCRUD" DataKeyNames="USERTYPEID" InsertItemPosition="LastItem" OnDataBound="_lstvwTypeCRUD_DataBound" OnItemInserting="_lstvwTypeCRUD_ItemInserting" OnItemUpdating="_lstvwTypeCRUD_ItemUpdating" OnItemInserted="_lstvwTypeCRUD_ItemInserted" OnItemUpdated="_lstvwTypeCRUD_ItemUpdated">
+    <asp:ListView ID="_lstvwTypeCRUD" runat="server" DataSourceID="_dtsrcTypeCRUD" DataKeyNames="USERTYPEID" InsertItemPosition="LastItem" OnDataBound="_lstvwTypeCRUD_DataBound" OnItemInserting="_lstvwTypeCRUD_ItemInserting" OnItemUpdating="_lstvwTypeCRUD_ItemUpdating" OnItemInserted="_lstvwTypeCRUD_ItemInserted" OnItemUpdated="_lstvwTypeCRUD_ItemUpdated" OnItemDataBound="_lstvwTypeCRUD_ItemDataBound" OnItemDeleted="_lstvwTypeCRUD_ItemDeleted">
         <%--<AlternatingItemTemplate>
             <span style="">USERTYPEID:
                 <asp:Label Text='<%# Eval("USERTYPEID") %>' runat="server" ID="USERTYPEIDLabel" /><br />
@@ -93,7 +93,7 @@
             </span>
         </SelectedItemTemplate>--%>
     </asp:ListView>
-    <asp:SqlDataSource runat="server" ID="_dtsrcTypeCRUD" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [USERTYPEID], [USERTYPENAME] FROM [USERTYPE] WHERE ([USERTYPEID] = @USERTYPEID)" DeleteCommand="DELETE FROM [USERTYPE] WHERE [USERTYPEID] = @USERTYPEID" InsertCommand="INSERT INTO [USERTYPE] ([USERTYPENAME]) VALUES (@USERTYPENAME)" UpdateCommand="UPDATE [USERTYPE] SET [USERTYPENAME] = @USERTYPENAME WHERE [USERTYPEID] = @USERTYPEID">
+    <asp:SqlDataSource runat="server" ID="_dtsrcTypeCRUD" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [USERTYPEID], [USERTYPENAME] FROM [USERTYPE] WHERE ([USERTYPEID] = @USERTYPEID)" DeleteCommand=" DELETE FROM USERPERMIT WHERE [USERTYPEID] = @USERTYPEID; DELETE FROM [USERTYPE] WHERE [USERTYPEID] = @USERTYPEID" InsertCommand="INSERT INTO [USERTYPE] ([USERTYPENAME]) VALUES (@USERTYPENAME)" UpdateCommand="UPDATE [USERTYPE] SET [USERTYPENAME] = @USERTYPENAME WHERE [USERTYPEID] = @USERTYPEID">
         <DeleteParameters>
             <asp:Parameter Name="USERTYPEID" Type="Int32"></asp:Parameter>
         </DeleteParameters>
