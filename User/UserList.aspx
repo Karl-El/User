@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Button ID="_btnAddUser" runat="server" CssClass="btn btn-success center-block" Text="New User" OnClick="_btnAddUser_Click"></asp:Button><br />
     <asp:ListView ID="_lstvwUserList" runat="server" DataSourceID="_dtsrcUserList" DataKeyNames="USERID">
         <%--<AlternatingItemTemplate>
             <tr style="">

@@ -22,7 +22,7 @@
                 <label class="control-label">User Type Name:</label>
                 <asp:TextBox Text='<%# Bind("USERTYPENAME") %>' runat="server" ID="USERTYPENAMETextBox" CssClass="form-control" />
                 <asp:CheckBoxList ID="_chkbxlstPermit" runat="server" DataSourceID="_dtsrcPermit" DataTextField="PERMITNAME" DataValueField="PERMITID" CssClass="checkbox checkbox-info"></asp:CheckBoxList>
-                <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT]"></asp:SqlDataSource>
+                <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT] WHERE PERMITID!=1"></asp:SqlDataSource>
                 <hr />
                 <asp:Button runat="server" CommandName="Update" Text="Update" ID="UpdateButton" CssClass="btn btn-primary" />
                 <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" CssClass="btn btn-danger" OnClientClick="window.location = '/TypeList.aspx'; this.form.reset();return false;" /><br />
@@ -39,7 +39,7 @@
                 <label class="control-label">User Type Name:</label>
                 <asp:TextBox Text='<%# Bind("USERTYPENAME") %>' runat="server" ID="USERTYPENAMETextBox" CssClass="form-control" />
                 <asp:CheckBoxList ID="_chkbxlstPermit" runat="server" DataSourceID="_dtsrcPermit" DataTextField="PERMITNAME" DataValueField="PERMITID" CssClass="checkbox checkbox-info"></asp:CheckBoxList>
-                <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT]"></asp:SqlDataSource>
+                <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT] WHERE PERMITID!=1"></asp:SqlDataSource>
                 <hr />
                 <asp:Button runat="server" CommandName="Insert" Text="Insert" ID="InsertButton" CssClass="btn btn-primary"/>
                 <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" CssClass="btn btn-danger" OnClientClick="window.location = '/TypeList.aspx'; this.form.reset();return false;" /><br />

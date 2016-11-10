@@ -44,5 +44,10 @@ namespace User
                 Connect.Close();
             }
         }
+
+        protected void _btnAddUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("UserCRUD.aspx");
+        }
     }
 }

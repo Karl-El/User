@@ -180,6 +180,12 @@ namespace User
                     Connect.Close();
                 }
             }
+            Connect.Open();
+            Cmd = new SqlCommand("INSERT INTO USERPERMIT (USERTYPEID,PERMITID) VALUES (@UserTypeID,'1')", Connect);
+            Cmd.Parameters.AddWithValue("@UserTypeID", LastUserTypeID);
+            //Cmd.Parameters.AddWithValue("@PermitID", _chkbxlstPermit.Items[i].Value);
+            Cmd.ExecuteNonQuery();
+            Connect.Close();
             string scriptText = "alert('Record Inserted'); window.location='" + Request.ApplicationPath + "TypeList.aspx'";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
         }
