@@ -93,7 +93,7 @@ namespace User
                 else
                 {
                     DeleteButton.Visible = false;
-                }
+                } 
             }
             //System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Wrong Entries", "alert('"+UserTypeID+"');", true);
 
