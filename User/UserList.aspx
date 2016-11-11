@@ -127,6 +127,7 @@
             <div runat="server" class="well table-responsive">
                 <div runat="server">
                     <div runat="server">
+                        <p>Click to Record to View</p>
                         <table id="itemPlaceholderContainer" runat="server" border="0" style="" class="table table-condensed table-hover">
                             <tr runat="server" style="" class="info">
                                 <%--<th runat="server"></th>--%>

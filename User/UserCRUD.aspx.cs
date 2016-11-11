@@ -76,5 +76,17 @@ namespace User
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
 
         }
+
+        protected void _lstvwUserCRUD_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListViewItemType.DataItem)
+            {
+                var EditButton = (Button)e.Item.FindControl("EditButton");
+                var DeleteButton = (Button)e.Item.FindControl("DeleteButton");
+
+            }
+
+
+        }
     }
 }

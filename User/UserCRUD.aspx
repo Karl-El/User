@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ListView ID="_lstvwUserCRUD" runat="server" DataSourceID="_dtsrcUserCRUD" DataKeyNames="USERID" InsertItemPosition="LastItem" OnDataBound="_lstvwUserCRUD_DataBound" OnItemDeleted="_lstvwUserCRUD_ItemDeleted" OnItemInserted="_lstvwUserCRUD_ItemInserted" OnItemUpdated="_lstvwUserCRUD_ItemUpdated">
+    <asp:ListView ID="_lstvwUserCRUD" runat="server" DataSourceID="_dtsrcUserCRUD" DataKeyNames="USERID" InsertItemPosition="LastItem" OnDataBound="_lstvwUserCRUD_DataBound" OnItemDeleted="_lstvwUserCRUD_ItemDeleted" OnItemInserted="_lstvwUserCRUD_ItemInserted" OnItemUpdated="_lstvwUserCRUD_ItemUpdated" OnItemDataBound="_lstvwUserCRUD_ItemDataBound">
         <%--<AlternatingItemTemplate>
             <span style="background-color: #FAFAD2; color: #284775;">USERID:
                 <asp:Label Text='<%# Eval("USERID") %>' runat="server" ID="USERIDLabel" /><br />
