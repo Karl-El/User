@@ -55,12 +55,31 @@ namespace User
         }
         protected void _lstvwUserCRUD_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
+            int EditID = 0;
+            int DeleteID = 0;
+            SqlConnection Connect = new SqlConnection(Conn);
             if (e.Item.ItemType == ListViewItemType.DataItem)
             {
                 var EditButton = (Button)e.Item.FindControl("EditButton");
                 var DeleteButton = (Button)e.Item.FindControl("DeleteButton");
-
+                SqlCommand Cmd = new SqlCommand("SELECT PERMITID FROM USERPERMIT WHERE USERTYPEID=@UserTypeID AND PERMITID=3", Connect); Cmd.Parameters.AddWithValue("@UserTypeID", UserTypeID);
+                Connect.Open();
+                SqlDataReader Reader = Cmd.ExecuteReader();
+                while (Reader.Read())
+                {
+                    EditID = Convert.ToInt32(Reader["PERMITID"].ToString());
+                }
+                Connect.Close();
+                if (EditID == 3)
+                {
+                    EditButton.Visible = true;
+                }
+                else
+                {
+                    EditButton.Visible = false;
+                }
             }
+            //System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Wrong Entries", "alert('"+UserTypeID+"');", true);
 
         }
         protected void _lstvwUserCRUD_DataBound(object sender, EventArgs e)
