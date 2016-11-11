@@ -83,8 +83,8 @@
                     <asp:Label Text="**************" runat="server" ID="USERPASSLabel" /><br />
                     <label class="control-label">User Type:</label>
                     <asp:Label Text='<%# Eval("USERTYPENAME") %>' runat="server" ID="USERTYPEIDLabel" /><hr />
-                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" CssClass="btn btn-primary " />
-                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" CssClass="btn btn-danger" />
+                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" CssClass="btn btn-primary" Visible="true"/>
+                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" CssClass="btn btn-danger" Visible="true"/>
                     <input type="button" value="Back" onclick="window.location = 'UserList.aspx';" class="btn btn-warning" />
                 </div>
             </div>
