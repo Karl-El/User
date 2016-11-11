@@ -66,7 +66,6 @@ namespace User
             {
                 _btnAddUser.Visible = false;
             }
-            //System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Wrong Entries", "alert('" + PermitID + "');", true);
         }
 
         protected void _btnAddUser_Click(object sender, EventArgs e)
