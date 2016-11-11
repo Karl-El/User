@@ -70,6 +70,14 @@ namespace User
                     EditID = Convert.ToInt32(Reader["PERMITID"].ToString());
                 }
                 Connect.Close();
+                Cmd = new SqlCommand("SELECT PERMITID FROM USERPERMIT WHERE USERTYPEID=@UserTypeID AND PERMITID=4", Connect); Cmd.Parameters.AddWithValue("@UserTypeID", UserTypeID);
+                Connect.Open();
+                Reader = Cmd.ExecuteReader();
+                while (Reader.Read())
+                {
+                    DeleteID = Convert.ToInt32(Reader["PERMITID"].ToString());
+                }
+                Connect.Close();
                 if (EditID == 3)
                 {
                     EditButton.Visible = true;
@@ -77,6 +85,14 @@ namespace User
                 else
                 {
                     EditButton.Visible = false;
+                }
+                if (DeleteID == 4)
+                {
+                    DeleteButton.Visible = true;
+                }
+                else
+                {
+                    DeleteButton.Visible = false;
                 }
             }
             //System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Wrong Entries", "alert('"+UserTypeID+"');", true);
