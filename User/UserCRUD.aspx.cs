@@ -49,7 +49,7 @@ namespace User
                         _lnkbtnPermission.Visible = false;
                     }
                 }
-                Connect.Close();
+                Connect.Close(); 
 
             }
         }
