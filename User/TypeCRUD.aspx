@@ -41,7 +41,7 @@
                 <asp:CheckBoxList ID="_chkbxlstPermit" runat="server" DataSourceID="_dtsrcPermit" DataTextField="PERMITNAME" DataValueField="PERMITID" CssClass="checkbox checkbox-info"></asp:CheckBoxList>
                 <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT] WHERE PERMITID!=1"></asp:SqlDataSource>
                 <hr />
-                <asp:Button runat="server" CommandName="Insert" Text="Insert" ID="InsertButton" CssClass="btn btn-primary"/>
+                <asp:Button runat="server" CommandName="Insert" Text="Insert" ID="InsertButton" CssClass="btn btn-primary" />
                 <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" CssClass="btn btn-danger" OnClientClick="window.location = '/TypeList.aspx'; this.form.reset();return false;" /><br />
                 <br />
             </div>
@@ -61,7 +61,9 @@
                 </asp:SqlDataSource>
                 <hr />
                 <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" CssClass="btn btn-primary " />
-                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" CssClass="btn btn-danger" />
+                <span onclick="return confirm('Are you sure to delete?')">
+                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" CssClass="btn btn-danger" />
+                </span>
                 <input type="button" value="Back" onclick="window.location = 'TypeList.aspx';" class="btn btn-warning" />
                 <br />
                 <br />

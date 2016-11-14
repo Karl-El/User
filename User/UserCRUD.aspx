@@ -84,7 +84,9 @@
                     <label class="control-label">User Type:</label>
                     <asp:Label Text='<%# Eval("USERTYPENAME") %>' runat="server" ID="USERTYPEIDLabel" /><hr />
                     <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" CssClass="btn btn-primary" Visible="true" PostBackUrl='<%#Eval("USERID","UserCRUD.aspx?id={0}")%>' />
-                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" CssClass="btn btn-danger" Visible="true"/>
+                    <span onclick="return confirm('Are you sure to delete?')">
+                        <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" CssClass="btn btn-danger" />
+                    </span>
                     <input type="button" value="Back" onclick="window.location = 'UserList.aspx';" class="btn btn-warning" />
                 </div>
             </div>
