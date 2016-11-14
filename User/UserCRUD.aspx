@@ -73,7 +73,7 @@
             <div style="" class="col-sm-4">
                 <div class="well">
                     <%--USERID:
-                <asp:Label Text='<%# Eval("USERID") %>' runat="server" ID="USERIDLabel" /><br />--%>
+                <asp:Label Text='<%# Eval("USERID") %>' runat="server" ID="USERIDLabel" /><br />" --%>
                     <label class="control-label">Username:</label>
                     <asp:Label Text='<%# Eval("USERNAME") %>' runat="server" ID="USERNAMELabel" /><br />
                     <label class="control-label">Email Address:</label>
@@ -83,7 +83,7 @@
                     <asp:Label Text="**************" runat="server" ID="USERPASSLabel" /><br />
                     <label class="control-label">User Type:</label>
                     <asp:Label Text='<%# Eval("USERTYPENAME") %>' runat="server" ID="USERTYPEIDLabel" /><hr />
-                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" CssClass="btn btn-primary" Visible="true"/>
+                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" CssClass="btn btn-primary" Visible="true" PostBackUrl='<%#Eval("USERID","UserCRUD.aspx?id={0}")%>' />
                     <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" CssClass="btn btn-danger" Visible="true"/>
                     <input type="button" value="Back" onclick="window.location = 'UserList.aspx';" class="btn btn-warning" />
                 </div>
