@@ -49,7 +49,7 @@ namespace User
                         _lnkbtnPermission.Visible = false;
                     }
                 }
-                Connect.Close(); 
+                Connect.Close();
 
             }
         }
@@ -78,7 +78,7 @@ namespace User
                     DeleteID = Convert.ToInt32(Reader["PERMITID"].ToString());
                 }
                 Connect.Close();
-                if (EditID == 3)
+                if (EditID == 3 || EditButton != null)
                 {
                     EditButton.Visible = true;
                 }
@@ -86,14 +86,14 @@ namespace User
                 {
                     EditButton.Visible = false;
                 }
-                if (DeleteID == 4)
+                if (DeleteID == 4 || DeleteButton != null)
                 {
                     DeleteButton.Visible = true;
                 }
                 else
                 {
                     DeleteButton.Visible = false;
-                } 
+                }
             }
             //System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Wrong Entries", "alert('"+UserTypeID+"');", true);
 
@@ -123,6 +123,6 @@ namespace User
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
 
         }
-        
+
     }
 }
