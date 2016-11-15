@@ -32,13 +32,19 @@ namespace BusinessLayer
             DA.Insert_Prod(Cmd);
         }
 
-        public void ProdUpdate(int Prod_Id)
+        public void ProdUpdate(int ProdID)
         {
             Cmd.Parameters.AddWithValue("@PRODID", Prod_Id); 
             Cmd.Parameters.AddWithValue("@BRAND", Prod_Brand);
             Cmd.Parameters.AddWithValue("@MODEL", Prod_Model);
             Cmd.Parameters.AddWithValue("@PRICE", Prod_Price);
             DA.Update_Prod(Cmd);
+        }
+
+        public void ProdDelete(int ProdID)
+        {
+            Cmd.Parameters.AddWithValue("@PRODID", Prod_Id);
+            DA.Delete_Prod(Cmd);
         }
     }
 }
