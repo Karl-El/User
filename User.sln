@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User", "User\User.csproj", "{111F0FAA-9E68-47A8-B46B-E261623591AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccesslayer", "DataAccesslayer\DataAccesslayer.csproj", "{472EBED4-DE42-4BF8-87FE-F6BFE3052509}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccesslayer\DataAccessLayer.csproj", "{472EBED4-DE42-4BF8-87FE-F6BFE3052509}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{B5E677C0-7AF2-49DC-921B-DAB7B970B078}"
 EndProject

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccesslayer
+namespace DataAccessLayer
 {
     public class DAL_UserType
     {

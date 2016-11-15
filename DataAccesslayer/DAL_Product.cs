@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace DataAccesslayer
+namespace DataAccessLayer
 {
     public class DAL_Product
     {
@@ -31,11 +31,20 @@ namespace DataAccesslayer
 
         }
 
-        public void Update_Prod (SqlCommand Cmd)
+        public void Update_Prod(SqlCommand Cmd)
         {
             Con.Open();
             Cmd.Connection = Con;
             Cmd.CommandText = "UPDATE [PRODUCT] SET [BRAND] = @BRAND, [MODEL] = @MODEL, [PRICE] = @PRICE WHERE [PRODID] = @PRODID";
+            Cmd.CommandType = CommandType.Text;
+            Cmd.ExecuteNonQuery();
+        }
+
+        public void Delete_Prod(SqlCommand Cmd)
+        {
+            Con.Open();
+            Cmd.Connection = Con;
+            Cmd.CommandText = "DELETE FROM [PRODUCT] WHERE [PRODID] = @PRODID";
             Cmd.CommandType = CommandType.Text;
             Cmd.ExecuteNonQuery();
         }

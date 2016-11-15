@@ -7,8 +7,8 @@
     <ProjectGuid>{472EBED4-DE42-4BF8-87FE-F6BFE3052509}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataAccesslayer</RootNamespace>
-    <AssemblyName>DataAccesslayer</AssemblyName>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
