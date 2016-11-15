@@ -11,7 +11,7 @@ namespace User
 {
     public partial class TypeCRUD : System.Web.UI.Page
     {
-        String Conn = ConfigurationManager.ConnectionStrings["_cnnctstrngUserDB"].ConnectionString;
+        String Conn = ConfigurationManager.ConnectionStrings["CnnctSrngUserDB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             LinkButton _lnkbtnPermission = (LinkButton)Page.Master.FindControl("_lnkbtnPermission");

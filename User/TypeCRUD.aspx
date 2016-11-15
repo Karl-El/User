@@ -22,7 +22,7 @@
                 <label class="control-label">User Type Name:</label>
                 <asp:TextBox Text='<%# Bind("USERTYPENAME") %>' runat="server" ID="USERTYPENAMETextBox" CssClass="form-control" />
                 <asp:CheckBoxList ID="_chkbxlstPermit" runat="server" DataSourceID="_dtsrcPermit" DataTextField="PERMITNAME" DataValueField="PERMITID" CssClass="checkbox checkbox-info"></asp:CheckBoxList>
-                <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT] WHERE PERMITID!=1"></asp:SqlDataSource>
+                <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:CnnctSrngUserDB %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT] WHERE PERMITID!=1"></asp:SqlDataSource>
                 <hr />
                 <asp:Button runat="server" CommandName="Update" Text="Update" ID="UpdateButton" CssClass="btn btn-primary" />
                 <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" CssClass="btn btn-danger" OnClientClick="window.location = '/TypeList.aspx'; this.form.reset();return false;" /><br />
@@ -39,7 +39,7 @@
                 <label class="control-label">User Type Name:</label>
                 <asp:TextBox Text='<%# Bind("USERTYPENAME") %>' runat="server" ID="USERTYPENAMETextBox" CssClass="form-control" />
                 <asp:CheckBoxList ID="_chkbxlstPermit" runat="server" DataSourceID="_dtsrcPermit" DataTextField="PERMITNAME" DataValueField="PERMITID" CssClass="checkbox checkbox-info"></asp:CheckBoxList>
-                <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT] WHERE PERMITID!=1"></asp:SqlDataSource>
+                <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:CnnctSrngUserDB %>' SelectCommand="SELECT [PERMITID], [PERMITNAME] FROM [PERMIT] WHERE PERMITID!=1"></asp:SqlDataSource>
                 <hr />
                 <asp:Button runat="server" CommandName="Insert" Text="Insert" ID="InsertButton" CssClass="btn btn-primary" />
                 <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" CssClass="btn btn-danger" OnClientClick="window.location = '/TypeList.aspx'; this.form.reset();return false;" /><br />
@@ -54,7 +54,7 @@
                 <label class="control-label">User Type Name:</label>
                 <asp:Label Text='<%# Eval("USERTYPENAME") %>' runat="server" ID="USERTYPENAMELabel" />
                 <asp:BulletedList ID="_blltlstUserPermit" runat="server" DataSourceID="_dtsrcUserPermit" DataTextField="PERMITNAME" DataValueField="PERMITID"></asp:BulletedList>
-                <asp:SqlDataSource runat="server" ID="_dtsrcUserPermit" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT PERMIT.PERMITNAME, USERPERMIT.USERTYPEID, USERPERMIT.PERMITID FROM PERMIT INNER JOIN USERPERMIT ON PERMIT.PERMITID = USERPERMIT.PERMITID WHERE (USERPERMIT.USERTYPEID = @UserTypeID)">
+                <asp:SqlDataSource runat="server" ID="_dtsrcUserPermit" ConnectionString='<%$ ConnectionStrings:CnnctSrngUserDB %>' SelectCommand="SELECT PERMIT.PERMITNAME, USERPERMIT.USERTYPEID, USERPERMIT.PERMITID FROM PERMIT INNER JOIN USERPERMIT ON PERMIT.PERMITID = USERPERMIT.PERMITID WHERE (USERPERMIT.USERTYPEID = @UserTypeID)">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="USERTYPEIDLabel" PropertyName="Text" Name="UserTypeID"></asp:ControlParameter>
                     </SelectParameters>
@@ -95,7 +95,7 @@
             </span>
         </SelectedItemTemplate>--%>
     </asp:ListView>
-    <asp:SqlDataSource runat="server" ID="_dtsrcTypeCRUD" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [USERTYPEID], [USERTYPENAME] FROM [USERTYPE] WHERE ([USERTYPEID] = @USERTYPEID)" DeleteCommand=" DELETE FROM USERPERMIT WHERE [USERTYPEID] = @USERTYPEID; DELETE FROM [USERTYPE] WHERE [USERTYPEID] = @USERTYPEID" InsertCommand="INSERT INTO [USERTYPE] ([USERTYPENAME]) VALUES (@USERTYPENAME)" UpdateCommand="UPDATE [USERTYPE] SET [USERTYPENAME] = @USERTYPENAME WHERE [USERTYPEID] = @USERTYPEID">
+    <asp:SqlDataSource runat="server" ID="_dtsrcTypeCRUD" ConnectionString='<%$ ConnectionStrings:CnnctSrngUserDB %>' SelectCommand="SELECT [USERTYPEID], [USERTYPENAME] FROM [USERTYPE] WHERE ([USERTYPEID] = @USERTYPEID)" DeleteCommand=" DELETE FROM USERPERMIT WHERE [USERTYPEID] = @USERTYPEID; DELETE FROM [USERTYPE] WHERE [USERTYPEID] = @USERTYPEID" InsertCommand="INSERT INTO [USERTYPE] ([USERTYPENAME]) VALUES (@USERTYPENAME)" UpdateCommand="UPDATE [USERTYPE] SET [USERTYPENAME] = @USERTYPENAME WHERE [USERTYPEID] = @USERTYPEID">
         <DeleteParameters>
             <asp:Parameter Name="USERTYPEID" Type="Int32"></asp:Parameter>
         </DeleteParameters>

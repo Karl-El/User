@@ -153,7 +153,7 @@
             <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="True" ShowPreviousPageButton="False" ButtonCssClass="btn btn-primary btn-sm" />
         </Fields>
     </asp:DataPager>
-    <asp:SqlDataSource runat="server" ID="_dtsrcUserList" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' DeleteCommand="DELETE FROM [USERS] WHERE [USERID] = @USERID" InsertCommand="INSERT INTO [USERS] ([USERNAME], [EMAIL], [USERPASS], [USERTYPEID]) VALUES (@USERNAME, @EMAIL, @USERPASS, @USERTYPEID)" SelectCommand="SELECT USERS.USERID, USERS.USERNAME, USERS.EMAIL, USERS.USERPASS, USERTYPE.USERTYPENAME FROM USERS INNER JOIN USERTYPE ON USERS.USERTYPEID = USERTYPE.USERTYPEID" UpdateCommand="UPDATE [USERS] SET [USERNAME] = @USERNAME, [EMAIL] = @EMAIL, [USERPASS] = @USERPASS, [USERTYPEID] = @USERTYPEID WHERE [USERID] = @USERID">
+    <asp:SqlDataSource runat="server" ID="_dtsrcUserList" ConnectionString='<%$ ConnectionStrings:CnnctSrngUserDB %>' DeleteCommand="DELETE FROM [USERS] WHERE [USERID] = @USERID" InsertCommand="INSERT INTO [USERS] ([USERNAME], [EMAIL], [USERPASS], [USERTYPEID]) VALUES (@USERNAME, @EMAIL, @USERPASS, @USERTYPEID)" SelectCommand="SELECT USERS.USERID, USERS.USERNAME, USERS.EMAIL, USERS.USERPASS, USERTYPE.USERTYPENAME FROM USERS INNER JOIN USERTYPE ON USERS.USERTYPEID = USERTYPE.USERTYPEID" UpdateCommand="UPDATE [USERS] SET [USERNAME] = @USERNAME, [EMAIL] = @EMAIL, [USERPASS] = @USERPASS, [USERTYPEID] = @USERTYPEID WHERE [USERID] = @USERID">
         <DeleteParameters>
             <asp:Parameter Name="USERID" Type="Int32"></asp:Parameter>
         </DeleteParameters>

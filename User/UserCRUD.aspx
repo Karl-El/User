@@ -35,7 +35,7 @@
                     <asp:TextBox Text='<%# Bind("USERPASS") %>' runat="server" ID="USERPASSTextBox" CssClass="form-control" /><br />
                     <label class="control-label">User Type:</label>
                     <asp:DropDownList ID="_ddlstUserType" runat="server" DataSourceID="_dtsrcUserTypeDropDown" SelectedValue='<%# Bind("USERTYPEID") %>' DataTextField="USERTYPENAME" DataValueField="USERTYPEID" CssClass="form-control"></asp:DropDownList>
-                    <asp:SqlDataSource runat="server" ID="_dtsrcUserTypeDropDown" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [USERTYPEID], [USERTYPENAME] FROM [USERTYPE]"></asp:SqlDataSource>
+                    <asp:SqlDataSource runat="server" ID="_dtsrcUserTypeDropDown" ConnectionString='<%$ ConnectionStrings:CnnctSrngUserDB %>' SelectCommand="SELECT [USERTYPEID], [USERTYPENAME] FROM [USERTYPE]"></asp:SqlDataSource>
                     <hr />
                     <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Save" CssClass="btn btn-primary" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" CssClass="btn btn-danger" OnClientClick=" window.location = '/UserList.aspx';this.form.reset();return false;" />
@@ -59,7 +59,7 @@
                     <asp:TextBox Text='<%# Bind("USERPASS") %>' runat="server" ID="USERPASSTextBox" CssClass="form-control" /><br />
                     <label class="control-label">User Type:</label>
                     <asp:DropDownList ID="_ddlstUserType" runat="server" SelectedValue='<%# Bind("USERTYPEID") %>' DataSourceID="_dtsrcUserTypeDropDown" DataTextField="USERTYPENAME" DataValueField="USERTYPEID" CssClass="form-control"></asp:DropDownList>
-                    <asp:SqlDataSource runat="server" ID="_dtsrcUserTypeDropDown" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [USERTYPEID], [USERTYPENAME] FROM [USERTYPE]"></asp:SqlDataSource>
+                    <asp:SqlDataSource runat="server" ID="_dtsrcUserTypeDropDown" ConnectionString='<%$ ConnectionStrings:CnnctSrngUserDB %>' SelectCommand="SELECT [USERTYPEID], [USERTYPENAME] FROM [USERTYPE]"></asp:SqlDataSource>
                     <hr />
                     <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Save" CssClass="btn btn-primary" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" CssClass="btn btn-danger" OnClientClick=" window.location = '/UserList.aspx';this.form.reset();return false;" />
@@ -121,7 +121,7 @@
             </span>
         </SelectedItemTemplate>--%>
     </asp:ListView>
-    <asp:SqlDataSource runat="server" ID="_dtsrcUserCRUD" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' DeleteCommand="DELETE FROM [USERS] WHERE [USERID] = @USERID" InsertCommand="INSERT INTO [USERS] ([USERNAME], [EMAIL], [USERPASS], [USERTYPEID]) VALUES (@USERNAME, @EMAIL, @USERPASS, @USERTYPEID)" SelectCommand="SELECT USERS.USERID, USERS.USERNAME, USERS.EMAIL, USERS.USERPASS, USERS.USERTYPEID, USERTYPE.USERTYPENAME FROM USERS INNER JOIN USERTYPE ON USERS.USERTYPEID = USERTYPE.USERTYPEID WHERE (USERS.USERID = @USERID)" UpdateCommand="UPDATE [USERS] SET [USERNAME] = @USERNAME, [EMAIL] = @EMAIL, [USERPASS] = @USERPASS, [USERTYPEID] = @USERTYPEID WHERE [USERID] = @USERID">
+    <asp:SqlDataSource runat="server" ID="_dtsrcUserCRUD" ConnectionString='<%$ ConnectionStrings:CnnctSrngUserDB %>' DeleteCommand="DELETE FROM [USERS] WHERE [USERID] = @USERID" InsertCommand="INSERT INTO [USERS] ([USERNAME], [EMAIL], [USERPASS], [USERTYPEID]) VALUES (@USERNAME, @EMAIL, @USERPASS, @USERTYPEID)" SelectCommand="SELECT USERS.USERID, USERS.USERNAME, USERS.EMAIL, USERS.USERPASS, USERS.USERTYPEID, USERTYPE.USERTYPENAME FROM USERS INNER JOIN USERTYPE ON USERS.USERTYPEID = USERTYPE.USERTYPEID WHERE (USERS.USERID = @USERID)" UpdateCommand="UPDATE [USERS] SET [USERNAME] = @USERNAME, [EMAIL] = @EMAIL, [USERPASS] = @USERPASS, [USERTYPEID] = @USERTYPEID WHERE [USERID] = @USERID">
         <DeleteParameters>
             <asp:Parameter Name="USERID" Type="Int32"></asp:Parameter>
         </DeleteParameters>

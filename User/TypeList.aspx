@@ -17,7 +17,7 @@
                                 <label class="control-label">User Type Name:</label>
                                 <asp:Label ID="USERTYPENAMELabel" runat="server" Text='<%# Eval("USERTYPENAME") %>' />
                                 <asp:BulletedList ID="_blltlstPermit" runat="server" DataSourceID="_dtsrcPermit" DataTextField="PERMITNAME" DataValueField="PERMITNAME" Height="90" BulletStyle="Square"></asp:BulletedList>
-                                <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT PERMIT.PERMITNAME FROM PERMIT INNER JOIN USERPERMIT ON PERMIT.PERMITID = USERPERMIT.PERMITID WHERE (USERPERMIT.USERTYPEID = @UserTypeID)">
+                                <asp:SqlDataSource runat="server" ID="_dtsrcPermit" ConnectionString='<%$ ConnectionStrings:CnnctSrngUserDB %>' SelectCommand="SELECT PERMIT.PERMITNAME FROM PERMIT INNER JOIN USERPERMIT ON PERMIT.PERMITID = USERPERMIT.PERMITID WHERE (USERPERMIT.USERTYPEID = @UserTypeID)">
                                     <SelectParameters>
                                         <asp:ControlParameter ControlID="USERTYPEIDLabel" PropertyName="Text" Name="USERTYPEID"></asp:ControlParameter>
                                     </SelectParameters>
@@ -54,5 +54,5 @@
             </asp:DataPager>
         </div>
     </div>
-    <asp:SqlDataSource runat="server" ID="_dtsrcTypeList" ConnectionString='<%$ ConnectionStrings:_cnnctstrngUserDB %>' SelectCommand="SELECT [USERTYPEID], [USERTYPENAME] FROM [USERTYPE]"></asp:SqlDataSource>
+    <asp:SqlDataSource runat="server" ID="_dtsrcTypeList" ConnectionString='<%$ ConnectionStrings:CnnctSrngUserDB %>' SelectCommand="SELECT [USERTYPEID], [USERTYPENAME] FROM [USERTYPE]"></asp:SqlDataSource>
 </asp:Content>

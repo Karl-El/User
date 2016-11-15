@@ -29,7 +29,7 @@ namespace User
             LinkButton _lnkbtnPermission = (LinkButton)Page.Master.FindControl("_lnkbtnPermission");
             LinkButton _lnkbtnUserList = (LinkButton)Page.Master.FindControl("_lnkbtnUserList");
             LinkButton _lnkbtnLogOut = (LinkButton)Page.Master.FindControl("_lnkbtnLogOut");
-            String Connect = ConfigurationManager.ConnectionStrings["_cnnctstrngUserDB"].ConnectionString;
+            String Connect = ConfigurationManager.ConnectionStrings["CnnctSrngUserDB"].ConnectionString;
             SqlConnection Con = new SqlConnection(Connect);
             SqlCommand Cmd = new SqlCommand("SELECT * FROM USERS WHERE USERNAME=@UserName AND USERPASS=@UserPass", Con);
             Cmd.Parameters.AddWithValue("@UserName", _txtbxUserName.Text.Trim());
