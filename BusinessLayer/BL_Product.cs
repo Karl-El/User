@@ -23,6 +23,11 @@ namespace BusinessLayer
             return DA.Select_Prod();
         }
 
+        public DataSet BrandSelect()
+        {
+            return DA.Select_Brand();
+        }
+
         public void ProdInsert()
         {
             Cmd.Parameters.AddWithValue("@PRODID", Prod_Id);

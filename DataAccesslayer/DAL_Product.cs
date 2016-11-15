@@ -11,11 +11,19 @@ namespace DataAccessLayer
 {
     public class DAL_Product
     {
-        SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["CnnctStrng"].ConnectionString);
+        SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["CnnctSrngUserDB"].ConnectionString);
 
         public DataSet Select_Prod()
         {
             SqlDataAdapter SDA = new SqlDataAdapter("SELECT PRODID, BRAND, MODEL, PRICE FROM PRODUCT", Con);
+            DataSet DS = new DataSet();
+            SDA.Fill(DS);
+            return DS;
+        }
+
+        public DataSet Select_Brand()
+        {
+            SqlDataAdapter SDA = new SqlDataAdapter("SELECT DISTINCT BRAND FROM PRODUCT", Con);
             DataSet DS = new DataSet();
             SDA.Fill(DS);
             return DS;
