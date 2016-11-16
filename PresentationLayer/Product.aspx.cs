@@ -37,18 +37,18 @@ namespace PresentationLayer
             _rdbtnlstBrand.DataBind();
         }
 
-        //public void Selected_Brand()
-        //{
-        //    SelectedBrand = _rdbtnlstBrand.SelectedValue.ToString();
-        //}
+        public void Selected_Brand()
+        {
+            SelectedBrand = _rdbtnlstBrand.SelectedValue.ToString();
+        }
 
-        //protected void _rdbtnlstBrand_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    Selected_Brand();
-        //    BrandSelected.FilteredBrand Service = new BrandSelected.FilteredBrand();
-        //    _grdvwProd.DataSource = Service.Select_ProdByBrand();
-        //    _grdvwProd.DataBind();
-        //}
+        protected void _rdbtnlstBrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Selected_Brand();
+            BrandSelected.FilteredBrand Service = new BrandSelected.FilteredBrand();
+            _grdvwProd.DataSource = Service.Select_ProdByBrand();
+            _grdvwProd.DataBind();
+        }
 
         protected void _btnInsert_Click(object sender, EventArgs e)
         {
