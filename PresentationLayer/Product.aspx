@@ -45,7 +45,7 @@
                 </div>
             </div>
             <hr />
-            <asp:Button ID="_btnInsert" runat="server" Text="Insert" CssClass="btn btn-success" />
+            <asp:Button ID="_btnInsert" runat="server" Text="Insert" CssClass="btn btn-success" OnClick="_btnInsert_Click" />
             <asp:Button ID="_btnUpdate" runat="server" Text="Update" CssClass="btn btn-info" />
             <asp:Button ID="_btnDelete" runat="server" Text="Delete" CssClass="btn btn-danger" />
         </div>
