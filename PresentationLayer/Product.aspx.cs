@@ -12,14 +12,15 @@ namespace PresentationLayer
     public partial class Product : System.Web.UI.Page
     {
         string message = null;
-        public string SelectedBrand { get; set; }
+        public string SelectedBrand = null;
         BL_Product BLProduct = new BL_Product();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                BindProdGrid(); BindBrandRdBtnLst();
+                BindProdGrid(); 
+                BindBrandRdBtnLst();
             }
         }
 
@@ -36,15 +37,10 @@ namespace PresentationLayer
             _rdbtnlstBrand.DataValueField = "BRAND";
             _rdbtnlstBrand.DataBind();
         }
-
-        public void Selected_Brand()
-        {
-            SelectedBrand = _rdbtnlstBrand.SelectedValue.ToString();
-        }
-
+        
         protected void _rdbtnlstBrand_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Selected_Brand();
+            SelectedBrand = _rdbtnlstBrand.SelectedItem.Text;
             BrandSelected.FilteredBrand Service = new BrandSelected.FilteredBrand();
             _grdvwProd.DataSource = Service.Select_ProdByBrand();
             _grdvwProd.DataBind();
@@ -64,7 +60,7 @@ namespace PresentationLayer
         protected void _grdvwProd_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             _grdvwProd.PageIndex = e.NewPageIndex;
-            BindProdGrid();
+            BindProdGrid(); 
         }
 
         protected void _btnInsert_Click(object sender, EventArgs e)
