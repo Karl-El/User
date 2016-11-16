@@ -15,13 +15,15 @@
     <div class="col-sm-9">
         <div class="well">
             <div class="row">
-                <asp:GridView ID="_grdvwProd" runat="server" CssClass="table table-responsive table-condensed table-hover" HeaderStyle-CssClass="info" AutoGenerateColumns="False">
+                <asp:GridView ID="_grdvwProd" runat="server" CssClass="table table-responsive table-condensed table-hover" HeaderStyle-CssClass="info" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="_grdvwProd_PageIndexChanging">
                     <Columns>
                         <asp:BoundField DataField="PRODID" HeaderText="ID" />
                         <asp:BoundField DataField="BRAND" HeaderText="Brand" />
                         <asp:BoundField DataField="MODEL" HeaderText="Model" />
                         <asp:BoundField DataField="PRICE" HeaderText="Price" />
                     </Columns>
+                    <PagerSettings Mode="NumericFirstLast" Position="Bottom" PageButtonCount="10"/>
+                    <PagerStyle BackColor="LightBlue" Height="30px" VerticalAlign="Bottom" HorizontalAlign="Center" />
                 </asp:GridView>
             </div>
         </div>
@@ -46,8 +48,8 @@
             </div>
             <hr />
             <asp:Button ID="_btnInsert" runat="server" Text="Insert" CssClass="btn btn-success" OnClick="_btnInsert_Click" />
-            <asp:Button ID="_btnUpdate" runat="server" Text="Update" CssClass="btn btn-info" />
-            <asp:Button ID="_btnDelete" runat="server" Text="Delete" CssClass="btn btn-danger" />
+            <asp:Button ID="_btnUpdate" runat="server" Text="Update" CssClass="btn btn-info" OnClick="_btnUpdate_Click" />
+            <asp:Button ID="_btnDelete" runat="server" Text="Delete" CssClass="btn btn-danger" OnClick="_btnDelete_Click" />
         </div>
     </div>
 </asp:Content>

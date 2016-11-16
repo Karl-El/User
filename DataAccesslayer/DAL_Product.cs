@@ -36,7 +36,6 @@ namespace DataAccessLayer
             Cmd.CommandText = "INSERT INTO [PRODUCT] ([BRAND], [MODEL], [PRICE]) VALUES (@BRAND, @MODEL, @PRICE)";
             Cmd.CommandType = CommandType.Text;
             Cmd.ExecuteNonQuery();
-
         }
 
         public void Update_Prod(SqlCommand Cmd)

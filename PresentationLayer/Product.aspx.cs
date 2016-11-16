@@ -50,16 +50,6 @@ namespace PresentationLayer
             _grdvwProd.DataBind();
         }
 
-        protected void _btnInsert_Click(object sender, EventArgs e)
-        {
-            BLProduct.Prod_Brand = _txtbxBrand.Text.Trim();
-            BLProduct.Prod_Model = _txtbxModel.Text.Trim();
-            BLProduct.Prod_Price = _txtbxPrice.Text.Trim();
-            BLProduct.ProdInsert();
-            message = "Record Inserted"; AlertAndClear();
-            BindProdGrid();
-        }
-
         public void AlertAndClear()
         {
             string script = "window.onload = function(){ alert('";
@@ -69,6 +59,42 @@ namespace PresentationLayer
             script += Request.Url.AbsoluteUri;
             script += "'; }";
             ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", script, true);
+        }
+
+        protected void _grdvwProd_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            _grdvwProd.PageIndex = e.NewPageIndex;
+            BindProdGrid();
+        }
+
+        protected void _btnInsert_Click(object sender, EventArgs e)
+        {
+            BLProduct.Prod_Brand = _txtbxBrand.Text.Trim();
+            BLProduct.Prod_Model = _txtbxModel.Text.Trim();
+            BLProduct.Prod_Price = _txtbxPrice.Text.Trim();
+            BLProduct.ProdInsert();
+            BindProdGrid();
+            message = "Record Inserted"; AlertAndClear();
+        }
+
+
+        protected void _btnUpdate_Click(object sender, EventArgs e)
+        {
+            BLProduct.Prod_Id = Convert.ToInt32(_txtbxProdID.Text.Trim());
+            BLProduct.Prod_Brand = _txtbxBrand.Text.Trim();
+            BLProduct.Prod_Model = _txtbxModel.Text.Trim();
+            BLProduct.Prod_Price = _txtbxPrice.Text.Trim();
+            BLProduct.ProdUpdate(BLProduct.Prod_Id);
+            BindProdGrid();
+            message = "Record Updated"; AlertAndClear();
+        }
+
+        protected void _btnDelete_Click(object sender, EventArgs e)
+        {
+            BLProduct.Prod_Id = Convert.ToInt32(_txtbxProdID.Text.Trim());
+            BLProduct.ProdDelete(BLProduct.Prod_Id);
+            BindProdGrid();
+            message = "Record Deleted"; AlertAndClear();
         }
     }
 }

@@ -7,7 +7,7 @@
     <title></title>
     <%--<link href="Content/flatly.css" rel="stylesheet" type="text/css" />--%>
     <link href="Content/darkly.css" rel="stylesheet" type="text/css" />
-    <link href="Content/site.css" rel="stylesheet" type="text/css" />
+    <%--<link href="Content/site.css" rel="stylesheet" type="text/css" />--%>
     <link href="Content/checkbox.css" rel="stylesheet" type="text/css" />
     <link href="Content/font-awesome.css" rel="stylesheet" type="text/css" />
     <script src="Scripts/jquery-3.1.1.js"></script>

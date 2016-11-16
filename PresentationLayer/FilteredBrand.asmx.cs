@@ -22,15 +22,15 @@ namespace PresentationLayer
     {
 
         [WebMethod]
-        public DataTable Select_ProdByBrand()
+        public DataSet Select_ProdByBrand()
         {
             Product Prod = new Product();
             SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["CnnctSrngUserDB"].ConnectionString);
             SqlDataAdapter SDA = new SqlDataAdapter("SELECT PRODID, BRAND, MODEL, PRICE FROM PRODUCT WHERE BRAND=@BRAND", Con);
             SDA.SelectCommand.Parameters.AddWithValue("@BRAND", Prod.SelectedBrand);
-            DataTable DT = new DataTable();
-            SDA.Fill(DT);
-            return DT;
+            DataSet DS = new DataSet();
+            SDA.Fill(DS);
+            return DS;
         }
     }
 }
