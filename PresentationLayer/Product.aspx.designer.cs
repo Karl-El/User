@@ -13,6 +13,15 @@ namespace PresentationLayer {
     public partial class Product {
         
         /// <summary>
+        /// _btnClearFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button _btnClearFilter;
+        
+        /// <summary>
         /// _rdbtnlstBrand control.
         /// </summary>
         /// <remarks>

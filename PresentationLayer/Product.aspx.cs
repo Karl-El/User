@@ -93,5 +93,11 @@ namespace PresentationLayer
             BindProdGrid();
             message = "Record Deleted"; AlertAndClear();
         }
+
+        protected void _btnClearFilter_Click(object sender, EventArgs e)
+        {
+            BindProdGrid();
+            _rdbtnlstBrand.ClearSelection();
+        }
     }
 }
