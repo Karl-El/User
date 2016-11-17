@@ -19,8 +19,9 @@ namespace PresentationLayer
         {
             if (!IsPostBack)
             {
-                BindProdGrid(); 
+                BindProdGrid();
                 BindBrandRdBtnLst();
+                _rdbtnlstBrand.AutoPostBack = true;
             }
         }
 
@@ -37,12 +38,12 @@ namespace PresentationLayer
             _rdbtnlstBrand.DataValueField = "BRAND";
             _rdbtnlstBrand.DataBind();
         }
-        
+
         protected void _rdbtnlstBrand_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedBrand = _rdbtnlstBrand.SelectedItem.Text;
-            BrandSelected.FilteredBrand Service = new BrandSelected.FilteredBrand();
-            //_grdvwProd.DataSource = Service.Select_ProdByBrand(SelectedBrand);
+            FilteredBrand Service = new FilteredBrand();
+            _grdvwProd.DataSource = Service.Select_ProdByBrand(SelectedBrand);
             _grdvwProd.DataBind();
         }
 
@@ -60,7 +61,7 @@ namespace PresentationLayer
         protected void _grdvwProd_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             _grdvwProd.PageIndex = e.NewPageIndex;
-            BindProdGrid(); 
+            BindProdGrid();
         }
 
         protected void _btnInsert_Click(object sender, EventArgs e)

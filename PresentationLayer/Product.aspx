@@ -7,7 +7,7 @@
         <div class="well">
             <h3>Brands</h3>
             <div class="row">
-                <asp:RadioButtonList ID="_rdbtnlstBrand" runat="server" CssClass="radio radio-success"></asp:RadioButtonList>
+                <asp:RadioButtonList ID="_rdbtnlstBrand" runat="server" CssClass="radio radio-warning" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstBrand_SelectedIndexChanged"></asp:RadioButtonList>
                 <%--<asp:SqlDataSource runat="server" ID="_dtsrcProdBrand" ConnectionString='<%$ ConnectionStrings:CnnctSrngUserDB %>' SelectCommand="SELECT DISTINCT BRAND FROM PRODUCT"></asp:SqlDataSource>--%>
             </div>
         </div>
