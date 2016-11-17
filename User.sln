@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "Presen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServiceLibraryServiceLayer", "WCFServiceLibraryServiceLayer\WCFServiceLibraryServiceLayer.csproj", "{2EC4DBA1-2949-4899-A075-ED8A367D0344}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{5F9BB63F-7887-4F24-BC94-38DE856EA0F3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{2EC4DBA1-2949-4899-A075-ED8A367D0344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EC4DBA1-2949-4899-A075-ED8A367D0344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EC4DBA1-2949-4899-A075-ED8A367D0344}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5F9BB63F-7887-4F24-BC94-38DE856EA0F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F9BB63F-7887-4F24-BC94-38DE856EA0F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F9BB63F-7887-4F24-BC94-38DE856EA0F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F9BB63F-7887-4F24-BC94-38DE856EA0F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

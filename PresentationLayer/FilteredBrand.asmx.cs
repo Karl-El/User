@@ -6,7 +6,6 @@ using System.Web.Services;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
-using PresentationLayer;
 
 namespace PresentationLayer
 {
@@ -22,12 +21,12 @@ namespace PresentationLayer
     {
 
         [WebMethod]
-        public DataSet Select_ProdByBrand()
+        public DataSet Select_ProdByBrand(string BRAND)
         {
             Product Prod = new Product();
             SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["CnnctSrngUserDB"].ConnectionString);
             SqlDataAdapter SDA = new SqlDataAdapter("SELECT PRODID, BRAND, MODEL, PRICE FROM PRODUCT WHERE BRAND=@BRAND", Con);
-            SDA.SelectCommand.Parameters.AddWithValue("@BRAND", Prod.SelectedBrand);
+            SDA.SelectCommand.Parameters.AddWithValue("@BRAND", BRAND);
             DataSet DS = new DataSet();
             SDA.Fill(DS);
             return DS;

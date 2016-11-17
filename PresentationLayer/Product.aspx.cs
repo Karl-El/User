@@ -12,7 +12,7 @@ namespace PresentationLayer
     public partial class Product : System.Web.UI.Page
     {
         string message = null;
-        public string SelectedBrand = null;
+        string SelectedBrand = null;
         BL_Product BLProduct = new BL_Product();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace PresentationLayer
         {
             SelectedBrand = _rdbtnlstBrand.SelectedItem.Text;
             BrandSelected.FilteredBrand Service = new BrandSelected.FilteredBrand();
-            _grdvwProd.DataSource = Service.Select_ProdByBrand();
+            //_grdvwProd.DataSource = Service.Select_ProdByBrand(SelectedBrand);
             _grdvwProd.DataBind();
         }
 

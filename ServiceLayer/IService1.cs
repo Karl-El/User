@@ -18,9 +18,7 @@ namespace ServiceLayer
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
-
-
-        [OperationContract]
+        
 
     }
 
