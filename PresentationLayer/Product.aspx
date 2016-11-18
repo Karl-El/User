@@ -23,7 +23,7 @@
                         <asp:BoundField DataField="MODEL" HeaderText="Model" />
                         <asp:BoundField DataField="PRICE" HeaderText="Price" />
                     </Columns>
-                    <PagerSettings Mode="NumericFirstLast" Position="Bottom" PageButtonCount="10"/>
+                    <PagerSettings Mode="NumericFirstLast" Position="Bottom" PageButtonCount="5"/>
                     <PagerStyle BackColor="LightBlue" Height="30px" VerticalAlign="Bottom" HorizontalAlign="Center" />
                 </asp:GridView>
             </div>
